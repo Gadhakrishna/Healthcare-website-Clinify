@@ -150,7 +150,7 @@ document.getElementById("loginForm").addEventListener("submit", function(e){
     if(email === savedEmail && pass === savedPass){
         localStorage.setItem("clinify_loggedin", "true");
         alert("Login Successful!");
-        window.location.href = "/patient-dashboard/html/index.html";
+        window.location.href = "patient-dashboard/html/index.html";
     } else {
         alert("Incorrect Email or Password");
     }
@@ -167,3 +167,4 @@ document.getElementById("loginForm").addEventListener("submit", function(e){
 
 </body>
 </html>
+
