@@ -362,6 +362,7 @@ body{
         width: 100%;
         background: var(--white);
         opacity: 0;
+        background-color: #f0f6ff;
     }
 
     header .navbar ul {
@@ -410,3 +411,4 @@ body{
         margin: 1rem 0;
     }
 }
+
