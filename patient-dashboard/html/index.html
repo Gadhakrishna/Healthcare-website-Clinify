@@ -8,24 +8,28 @@
   <!-- INTER FONT -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- main stylesheet -->
+  <!-- FIXED CSS PATH -->
   <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
 
-  <!-- TOP NAVBAR (Slight Blue Tint) -->
+  <!-- TOP NAVBAR -->
   <header class="topbar tint" role="banner">
     <div class="nav-inner">
+
       <div class="top-left">
 
-        <!-- Stylish Hamburger -->
+        <!-- Hamburger -->
         <button id="hamburgerBtn" class="hamburger" aria-label="Open menu" aria-expanded="false">
           <div class="ham-line top"></div>
           <div class="ham-line middle"></div>
           <div class="ham-line bottom"></div>
         </button>
 
-        <div ><img src="/assets/icons/logo.png" alt="logo" width="100px"></div>
+        <!-- FIXED LOGO PATH -->
+        <div><img src="../assets/icons/logo.png" alt="logo" width="100px"></div>
+
         <div class="brand-title">
           <div class="site-title">Clinify</div>
           <div class="site-subtitle">Patient Dashboard</div>
@@ -34,98 +38,100 @@
 
       <div class="nav-spacer"></div>
 
-       <div class="nav-actions">
+      <div class="nav-actions">
 
         <!-- Notification Bell -->
-        <div class="nav-bell" id="bellBtn" aria-haspopup="true" aria-expanded="false" role="button" tabindex="0" title="Notifications">
-          <i class="bell-icon" aria-hidden="true"></i>
-          <span class="notif-badge" id="notifCount" aria-hidden="true">3</span>
+        <div class="nav-bell" id="bellBtn">
+          <i class="bell-icon"></i>
+          <span class="notif-badge" id="notifCount">3</span>
         </div>
 
         <!-- Notification Dropdown -->
-        <div class="notif-box" id="notifBox" role="menu" aria-hidden="true">
+        <div class="notif-box" id="notifBox">
           <div class="notif-header">Notifications</div>
 
-          <div class="notif-item" role="menuitem" tabindex="0">
+          <div class="notif-item">
             <p>Your appointment with Dr.Tello is confirmed.</p>
             <span>10 mins ago</span>
           </div>
 
-          <div class="notif-item" role="menuitem" tabindex="0">
+          <div class="notif-item">
             <p>New prescription added to your records.</p>
             <span>1 hour ago</span>
           </div>
 
-          <div class="notif-item" role="menuitem" tabindex="0">
+          <div class="notif-item">
             <p>Your lab report is ready for download.</p>
             <span>Yesterday</span>
           </div>
         </div>
 
         <!-- Profile Circle -->
-        <div class="nav-profile" id="profileBtn" aria-haspopup="true" aria-expanded="false" role="button" tabindex="0" title="Account">
-          <img src="assets/patients/Natalie hughes.jpg" alt="profile_pic" >
+        <div class="nav-profile" id="profileBtn">
+          <img src="../assets/patients/Natalie hughes.jpg" alt="profile_pic">
         </div>
 
         <!-- Profile Dropdown -->
-        <div class="profile-dropdown" id="profileDropdown" role="menu" aria-hidden="true">
-          <a href="patient-dashboard/html/profile.html" class="p-item" role="menuitem" tabindex="0">My Profile</a>
-          <a href="patient-dashboard/html/settings.html" class="p-item" role="menuitem" tabindex="0">Settings</a>
-          <!-- <button class="p-item danger" id="logoutBtn" role="menuitem" tabindex="0">Logout</button> -->
-         <button class="p-item danger" onclick=" localStorage.removeItem('clinify_loggedin'); window.location.href='login.html';">Logout</button>
-</div>
+        <div class="profile-dropdown" id="profileDropdown">
+          <a href="profile.html" class="p-item">My Profile</a>
+          <a href="settings.html" class="p-item">Settings</a>
+
+          <button class="p-item danger"
+            onclick="localStorage.removeItem('clinify_loggedin'); window.location.href='../login.html';">
+            Logout
+          </button>
+        </div>
 
       </div>
     </div>
   </header>
 
   <!-- mobile overlay -->
-  <div id="sidebarOverlay" class="sidebar-overlay" tabindex="-1" aria-hidden="true"></div>
+  <div id="sidebarOverlay" class="sidebar-overlay"></div>
 
-  <!-- page container -->
+  <!-- PAGE -->
   <div class="page">
     <div class="frame">
 
-      <!-- SIDEBAR (off-canvas on mobile) -->
-      <aside id="sidebar" class="sidebar">   <!--aria-hidden="false" -->
+      <!-- SIDEBAR -->
+      <aside id="sidebar" class="sidebar">
+
         <div class="brand">
-          <div><img src="assets/icons/logo.png" alt="logo" width="100px"></div>
-          <div>
-            
-            <div class="small muted">Patient</div>
-          </div>
+          <div><img src="../assets/icons/logo.png" alt="logo" width="100px"></div>
+          <div><div class="small muted">Patient</div></div>
         </div>
 
-        <nav class="side-nav" aria-label="Main navigation">
-          <a href="patient-dashboard/html/index.html" class="active">Dashboard</a>
-          <a href="patient-dashboard/html/appointment.html">Appointment Management</a>
-          <a href="patient-dashboard/html/medical.html">Medical Records</a>
-          <a href="patient-dashboard/html/telemedicine.html">Telemedicine</a>
-          <a href="patient-dashboard/html/ai.html">AI Symptom Checker</a>
-          <a href="patient-dashboard/html/prescription.html">Prescriptions</a>
-          <a href="patient-dashboard/html/insurance.html">Insurance</a>
-          <a href="patient-dashboard/html/profile.html">My Profile</a>
-          <a href="patient-dashboard/html/notification.html">Notifications</a>
-          <a href="patient-dashboard/html/settings.html">Settings</a>
+        <nav class="side-nav">
+
+          <!-- FIXED PATHS -->
+          <a href="index.html" class="active">Dashboard</a>
+          <a href="appointment.html">Appointment Management</a>
+          <a href="medical.html">Medical Records</a>
+          <a href="telemedicine.html">Telemedicine</a>
+          <a href="ai.html">AI Symptom Checker</a>
+          <a href="prescription.html">Prescriptions</a>
+          <a href="insurance.html">Insurance</a>
+          <a href="profile.html">My Profile</a>
+          <a href="notification.html">Notifications</a>
+          <a href="settings.html">Settings</a>
+
         </nav>
+
       </aside>
 
-      <!-- MAIN AREA -->
-      <main class="main" id="mainContent" tabindex="-1">
+      <!-- MAIN CONTENT -->
+      <main class="main" id="mainContent">
 
         <div class="toprow">
           <div>
             <div class="welcome">Welcome back, Natalie</div>
             <div class="sub">Here's your latest health snapshot</div>
           </div>
-
-          <div class="actions-row">
-            <!-- kept empty for clarity; quick actions exist in right-mid -->
-          </div>
         </div>
 
-        <!-- VITALS -->
+        <!-- VITAL CARDS -->
         <div class="vitals-row">
+
           <div class="v-card card">
             <div class="title">Blood Pressure</div>
             <div class="value">100/70</div>
@@ -143,12 +149,13 @@
             <div class="value">78–92</div>
             <div class="note">Normal Range</div>
           </div>
+
         </div>
 
         <!-- MID GRID -->
         <div class="mid">
 
-          <!-- LEFT PANELS -->
+          <!-- LEFT SIDE -->
           <div class="left-col">
 
             <!-- Hemoglobin -->
@@ -156,7 +163,6 @@
               <div class="panel-title">Hemoglobin</div>
               <div class="small muted">Last update: Apr 20, 2023</div>
 
-              <!-- Simple SVG chart -->
               <svg viewBox="0 0 600 140" width="100%" height="140" class="mini-chart">
                 <defs>
                   <linearGradient id="g1" x1="0" x2="0" y1="0" y2="1">
@@ -164,8 +170,10 @@
                     <stop offset="100%" stop-color="#ffffff"/>
                   </linearGradient>
                 </defs>
+
                 <path d="M0 110 C80 90 160 70 240 60 C320 50 400 55 480 40 C560 25 600 20 600 20 L600 140 L0 140 Z"
                   fill="url(#g1)"></path>
+
                 <path d="M0 110 C80 90 160 70 240 60 C320 50 400 55 480 40 C560 25 600 20"
                   fill="none" stroke="#0b76ff" stroke-width="3"></path>
               </svg>
@@ -186,85 +194,56 @@
 
           </div>
 
-          <!-- RIGHT MID -->
+          <!-- RIGHT SIDE -->
           <aside class="right-mid">
 
+            <!-- BP card -->
             <section class="panel card bp-card">
-  <div class="panel-title">Blood Pressure</div>
-  <div class="bp-today">
-    <div class="bp-value">100/70</div>
-    <div class="bp-status normal">Normal</div>
-  </div>
 
-  <div class="bp-extra">
-    <div class="bp-mini">
-      <div>Pulse</div>
-      <span>78 bpm</span>
-    </div>
-    <div class="bp-mini">
-      <div>Min</div>
-      <span>98/68</span>
-    </div>
-    <div class="bp-mini">
-      <div>Max</div>
-      <span>122/82</span>
-    </div>
-  </div>
+              <div class="panel-title">Blood Pressure</div>
 
-  <!-- Smooth Gradient Line Chart -->
-  <svg class="bp-chart" viewBox="0 0 300 140">
-    <defs>
-      <linearGradient id="bpFill" x1="0" x2="0" y1="0" y2="1">
-        <stop offset="0%" stop-color="#0b76ff" stop-opacity="0.35"/>
-        <stop offset="100%" stop-color="#0b76ff" stop-opacity="0"/>
-      </linearGradient>
-    </defs>
+              <div class="bp-today">
+                <div class="bp-value">100/70</div>
+                <div class="bp-status normal">Normal</div>
+              </div>
 
-    <!-- Gradient area -->
-    <path
-      d="M0 90 C50 60 100 110 150 70 C200 40 250 90 300 60 L300 140 L0 140 Z"
-      fill="url(#bpFill)"
-    ></path>
+              <div class="bp-extra">
+                <div class="bp-mini"><div>Pulse</div><span>78 bpm</span></div>
+                <div class="bp-mini"><div>Min</div><span>98/68</span></div>
+                <div class="bp-mini"><div>Max</div><span>122/82</span></div>
+              </div>
 
-    <!-- Line -->
-    <path
-      d="M0 90 C50 60 100 110 150 70 C200 40 250 90 300 60"
-      stroke="#0b76ff"
-      stroke-width="4"
-      fill="none"
-      stroke-linecap="round"
-    ></path>
-  </svg>
-</section>
+            </section>
 
-  <section class="panel" style="margin-top:16px">
-      <div class="panel-title">Quick Actions</div>
+            <!-- Quick Actions -->
+            <section class="panel" style="margin-top:16px">
+              <div class="panel-title">Quick Actions</div>
 
-        <button class="btn primary full" onclick="window.location.href='patient-dashboard/html/appointment.html'">
+              <button class="btn primary full" onclick="window.location.href='appointment.html'">
                 Book Appointment
-        </button>
+              </button>
 
-        <button class="btn ghost full" onclick="window.location.href='patient-dashboard/html/medical.html'">
+              <button class="btn ghost full" onclick="window.location.href='medical.html'">
                 Upload Reports
-        </button>
+              </button>
 
-        <button class="btn ghost full" onclick="window.location.href='patient-dashboard/html/ai.html'">
+              <button class="btn ghost full" onclick="window.location.href='ai.html'">
                 AI Symptom Checker
-        </button>
-            
-    </section>
+              </button>
+            </section>
 
-      </aside>
+          </aside>
 
-    </div>
+        </div>
 
-  </main>
+      </main>
 
-      <!-- RIGHT PROFILE COLUMN -->
+      <!-- RIGHT PROFILE SIDEBAR -->
       <aside class="profile">
+
         <div class="card profile-card">
           <div class="profile-top">
-            <div class="avatar"><img src="assets/patients/Natalie hughes.jpg" alt=""></div>
+            <div class="avatar"><img src="../assets/patients/Natalie hughes.jpg" alt=""></div>
             <div>
               <div class="profile-name">Natalie Hughes</div>
               <div class="muted small">Patient • 24 yrs</div>
@@ -272,16 +251,7 @@
             </div>
           </div>
 
-          <div class="p-meta">
-            <div>Gender<div>Female</div></div>
-            <div>Age<div>24 Years</div></div>
-            <div>Height<div>173 cm</div></div>
-            <div>Weight<div>50 kg</div></div>
-          </div>
-
-          <button class="btn primary full"
-                  style="margin-top:14px"
-                  onclick="window.location.href='patient-dashboard/html/profile.html'">
+          <button class="btn primary full" style="margin-top:14px" onclick="window.location.href='profile.html'">
             Show Full Profile
           </button>
 
@@ -296,39 +266,35 @@
 
         </div>
 
-       <div class="card" style="margin-top:16px">
+        <div class="card" style="margin-top:16px">
           <div class="panel-title">Insurance</div>
           <div class="small muted">HealthShield Plus • HSP-198237</div>
 
-          <button class="btn ghost full small"
-                  onclick="window.location.href='patient-dashboard/html/insurance.html'">
+          <button class="btn ghost full small" onclick="window.location.href='insurance.html'">
             Manage →
           </button>
         </div>
+
       </aside>
 
-    </div> <!-- .frame -->
-  </div> <!-- .page -->
-
-
-    <!-- OPTIMIZED DASHBOARD FOOTER -->
-    <footer class="dash-web-footer">
-    <div>   
-        © 2025 Clinify. All Rights Reserved.
     </div>
-    </footer>
+  </div>
 
-  <!-- script -->
-  <script src="patient-dashboard/js/script.js"></script>
+  <!-- FOOTER -->
+  <footer class="dash-web-footer">
+    <div>© 2025 Clinify. All Rights Reserved.</div>
+  </footer>
+
+  <!-- FIXED JS PATH -->
+  <script src="../patient-dashboard/js/script.js"></script>
 
   <script>
-if(localStorage.getItem("clinify_loggedin") !== "true"){
-    alert("Please login first.");
-    window.location.href = "login.html";
-}
-</script>
+    if (localStorage.getItem("clinify_loggedin") !== "true") {
+      alert("Please login first.");
+      window.location.href = "../login.html";
+    }
+  </script>
 
 </body>
 </html>
-
 
