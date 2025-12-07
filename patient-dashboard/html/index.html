@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- main stylesheet -->
-  <link rel="stylesheet" href="/patient-dashboard/css/style.css">
+  <link rel="stylesheet" href="patient-dashboard/css/style.css">
 </head>
 <body>
 
@@ -64,15 +64,15 @@
 
         <!-- Profile Circle -->
         <div class="nav-profile" id="profileBtn" aria-haspopup="true" aria-expanded="false" role="button" tabindex="0" title="Account">
-          <img src="/assets/patients/Natalie hughes.jpg" alt="profile_pic" >
+          <img src="assets/patients/Natalie hughes.jpg" alt="profile_pic" >
         </div>
 
         <!-- Profile Dropdown -->
         <div class="profile-dropdown" id="profileDropdown" role="menu" aria-hidden="true">
-          <a href="/patient-dashboard/html/profile.html" class="p-item" role="menuitem" tabindex="0">My Profile</a>
-          <a href="/patient-dashboard/html/settings.html" class="p-item" role="menuitem" tabindex="0">Settings</a>
+          <a href="patient-dashboard/html/profile.html" class="p-item" role="menuitem" tabindex="0">My Profile</a>
+          <a href="patient-dashboard/html/settings.html" class="p-item" role="menuitem" tabindex="0">Settings</a>
           <!-- <button class="p-item danger" id="logoutBtn" role="menuitem" tabindex="0">Logout</button> -->
-         <button class="p-item danger" onclick=" localStorage.removeItem('clinify_loggedin'); window.location.href='/login.html';">Logout</button>
+         <button class="p-item danger" onclick=" localStorage.removeItem('clinify_loggedin'); window.location.href='login.html';">Logout</button>
 </div>
 
       </div>
@@ -89,7 +89,7 @@
       <!-- SIDEBAR (off-canvas on mobile) -->
       <aside id="sidebar" class="sidebar">   <!--aria-hidden="false" -->
         <div class="brand">
-          <div><img src="/assets/icons/logo.png" alt="logo" width="100px"></div>
+          <div><img src="assets/icons/logo.png" alt="logo" width="100px"></div>
           <div>
             
             <div class="small muted">Patient</div>
@@ -97,16 +97,16 @@
         </div>
 
         <nav class="side-nav" aria-label="Main navigation">
-          <a href="/patient-dashboard/html/index.html" class="active">Dashboard</a>
-          <a href="/patient-dashboard/html/appointment.html">Appointment Management</a>
-          <a href="/patient-dashboard/html/medical.html">Medical Records</a>
-          <a href="/patient-dashboard/html/telemedicine.html">Telemedicine</a>
-          <a href="/patient-dashboard/html/ai.html">AI Symptom Checker</a>
-          <a href="/patient-dashboard/html/prescription.html">Prescriptions</a>
-          <a href="/patient-dashboard/html/insurance.html">Insurance</a>
-          <a href="/patient-dashboard/html/profile.html">My Profile</a>
-          <a href="/patient-dashboard/html/notification.html">Notifications</a>
-          <a href="/patient-dashboard/html/settings.html">Settings</a>
+          <a href="patient-dashboard/html/index.html" class="active">Dashboard</a>
+          <a href="patient-dashboard/html/appointment.html">Appointment Management</a>
+          <a href="patient-dashboard/html/medical.html">Medical Records</a>
+          <a href="patient-dashboard/html/telemedicine.html">Telemedicine</a>
+          <a href="patient-dashboard/html/ai.html">AI Symptom Checker</a>
+          <a href="patient-dashboard/html/prescription.html">Prescriptions</a>
+          <a href="patient-dashboard/html/insurance.html">Insurance</a>
+          <a href="patient-dashboard/html/profile.html">My Profile</a>
+          <a href="patient-dashboard/html/notification.html">Notifications</a>
+          <a href="patient-dashboard/html/settings.html">Settings</a>
         </nav>
       </aside>
 
@@ -240,15 +240,15 @@
   <section class="panel" style="margin-top:16px">
       <div class="panel-title">Quick Actions</div>
 
-        <button class="btn primary full" onclick="window.location.href='/patient-dashboard/html/appointment.html'">
+        <button class="btn primary full" onclick="window.location.href='patient-dashboard/html/appointment.html'">
                 Book Appointment
         </button>
 
-        <button class="btn ghost full" onclick="window.location.href='/patient-dashboard/html/medical.html'">
+        <button class="btn ghost full" onclick="window.location.href='patient-dashboard/html/medical.html'">
                 Upload Reports
         </button>
 
-        <button class="btn ghost full" onclick="window.location.href='/patient-dashboard/html/ai.html'">
+        <button class="btn ghost full" onclick="window.location.href='patient-dashboard/html/ai.html'">
                 AI Symptom Checker
         </button>
             
@@ -264,7 +264,7 @@
       <aside class="profile">
         <div class="card profile-card">
           <div class="profile-top">
-            <div class="avatar"><img src="/assets/patients/Natalie hughes.jpg" alt=""></div>
+            <div class="avatar"><img src="assets/patients/Natalie hughes.jpg" alt=""></div>
             <div>
               <div class="profile-name">Natalie Hughes</div>
               <div class="muted small">Patient • 24 yrs</div>
@@ -281,7 +281,7 @@
 
           <button class="btn primary full"
                   style="margin-top:14px"
-                  onclick="window.location.href='/patient-dashboard/html/profile.html'">
+                  onclick="window.location.href='patient-dashboard/html/profile.html'">
             Show Full Profile
           </button>
 
@@ -301,7 +301,7 @@
           <div class="small muted">HealthShield Plus • HSP-198237</div>
 
           <button class="btn ghost full small"
-                  onclick="window.location.href='/patient-dashboard/html/insurance.html'">
+                  onclick="window.location.href='patient-dashboard/html/insurance.html'">
             Manage →
           </button>
         </div>
@@ -319,14 +319,15 @@
     </footer>
 
   <!-- script -->
-  <script src="/patient-dashboard/js/script.js"></script>
+  <script src="patient-dashboard/js/script.js"></script>
 
   <script>
 if(localStorage.getItem("clinify_loggedin") !== "true"){
     alert("Please login first.");
-    window.location.href = "/login.html";
+    window.location.href = "login.html";
 }
 </script>
 
 </body>
 </html>
+
