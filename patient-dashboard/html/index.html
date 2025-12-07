@@ -69,10 +69,10 @@
 
         <!-- Profile Dropdown -->
         <div class="profile-dropdown" id="profileDropdown" role="menu" aria-hidden="true">
-          <a href="../patient-dashboard/html/profile.html" class="p-item" role="menuitem" tabindex="0">My Profile</a>
-          <a href="../patient-dashboard/html/settings.html" class="p-item" role="menuitem" tabindex="0">Settings</a>
+          <a href="/Healthcare-website-Clinify/patient-dashboard/html/profile.html" class="p-item" role="menuitem" tabindex="0">My Profile</a>
+          <a href="/Healthcare-website-Clinify/patient-dashboard/html/settings.html" class="p-item" role="menuitem" tabindex="0">Settings</a>
           <!-- <button class="p-item danger" id="logoutBtn" role="menuitem" tabindex="0">Logout</button> -->
-         <button class="p-item danger" onclick=" localStorage.removeItem('clinify_loggedin'); window.location.href='../login.html';">Logout</button>
+         <button class="p-item danger" onclick=" localStorage.removeItem('clinify_loggedin'); window.location.href='/Healthcare-website-Clinify/login.html';">Logout</button>
 </div>
 
       </div>
@@ -97,16 +97,16 @@
         </div>
 
         <nav class="side-nav" aria-label="Main navigation">
-          <a href="../html/index.html" class="active">Dashboard</a>
-          <a href="../html/appointment.html">Appointment Management</a>
-          <a href="../html/medical.html">Medical Records</a>
-          <a href="../html/telemedicine.html">Telemedicine</a>
-          <a href="../html/ai.html">AI Symptom Checker</a>
-          <a href="../html/prescription.html">Prescriptions</a>
-          <a href="../html/insurance.html">Insurance</a>
-          <a href="../html/profile.html">My Profile</a>
-          <a href="../html/notification.html">Notifications</a>
-          <a href="../html/settings.html">Settings</a>
+          <a href="/Healthcare-website-Clinify/patient-dashboard/html/index.html" class="active">Dashboard</a>
+          <a href="/Healthcare-website-Clinify/patient-dashboard/html/appointment.html">Appointment Management</a>
+          <a href="/Healthcare-website-Clinify/patient-dashboard/html/medical.html">Medical Records</a>
+          <a href="/Healthcare-website-Clinify/patient-dashboard/html/telemedicine.html">Telemedicine</a>
+          <a href="/Healthcare-website-Clinify/patient-dashboard/html/ai.html">AI Symptom Checker</a>
+          <a href="/Healthcare-website-Clinify/patient-dashboard/html/prescription.html">Prescriptions</a>
+          <a href="/Healthcare-website-Clinify/patient-dashboard/html/insurance.html">Insurance</a>
+          <a href="/Healthcare-website-Clinify/patient-dashboard/html/profile.html">My Profile</a>
+          <a href="/Healthcare-website-Clinify/patient-dashboard/html/notification.html">Notifications</a>
+          <a href="/Healthcare-website-Clinify/patient-dashboard/html/settings.html">Settings</a>
         </nav>
       </aside>
 
@@ -240,15 +240,15 @@
   <section class="panel" style="margin-top:16px">
       <div class="panel-title">Quick Actions</div>
 
-        <button class="btn primary full" onclick="window.location.href='../html/appointment.html'">
+        <button class="btn primary full" onclick="window.location.href='/Healthcare-website-Clinify/patient-dashboard/html/appointment.html'">
                 Book Appointment
         </button>
 
-        <button class="btn ghost full" onclick="window.location.href='../html/medical.html'">
+        <button class="btn ghost full" onclick="window.location.href='/Healthcare-website-Clinify/patient-dashboard/html/medical.html'">
                 Upload Reports
         </button>
 
-        <button class="btn ghost full" onclick="window.location.href='../html/ai.html'">
+        <button class="btn ghost full" onclick="window.location.href='/Healthcare-website-Clinify/patient-dashboard/html/ai.html'">
                 AI Symptom Checker
         </button>
             
@@ -281,7 +281,7 @@
 
           <button class="btn primary full"
                   style="margin-top:14px"
-                  onclick="window.location.href='../html/profile.html'">
+                  onclick="window.location.href='/Healthcare-website-Clinify/patient-dashboard/html/profile.html'">
             Show Full Profile
           </button>
 
@@ -301,7 +301,7 @@
           <div class="small muted">HealthShield Plus • HSP-198237</div>
 
           <button class="btn ghost full small"
-                  onclick="window.location.href='../html/insurance.html'">
+                  onclick="window.location.href='/Healthcare-website-Clinify/patient-dashboard/html/insurance.html'">
             Manage →
           </button>
         </div>
@@ -330,6 +330,7 @@ if(localStorage.getItem("clinify_loggedin") !== "true"){
 
 </body>
 </html>
+
 
 
 
