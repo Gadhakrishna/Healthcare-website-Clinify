@@ -145,30 +145,32 @@
 
     </footer>
 
-
 <script>
 document.getElementById("registerForm").addEventListener("submit", function(e){
     e.preventDefault();
 
-    let name = document.getElementById("regName").value;
-    let email = document.getElementById("regEmail").value;
-    let pass = document.getElementById("regPass").value;
-    let pass2 = document.getElementById("regPass2").value;
+    let name = document.getElementById("regName").value.trim();
+    let email = document.getElementById("regEmail").value.trim().toLowerCase();
+    let pass = document.getElementById("regPass").value.trim();
+    let pass2 = document.getElementById("regPass2").value.trim();
 
     if(pass !== pass2){
         alert("Passwords do not match!");
         return;
     }
 
-    // Save to localStorage
+    // Save to localStorage (clean format)
     localStorage.setItem("clinify_name", name);
     localStorage.setItem("clinify_email", email);
     localStorage.setItem("clinify_pass", pass);
 
     alert("Account Created Successfully!");
-    window.location.href = "login.html";
+
+    // Correct GitHub Pages redirect
+    window.location.href = "/Healthcare-website-Clinify/login.html";
 });
 </script>
+
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -177,3 +179,4 @@ document.getElementById("registerForm").addEventListener("submit", function(e){
 
 </body>
 </html>
+
