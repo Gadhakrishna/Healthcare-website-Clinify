@@ -141,21 +141,24 @@
 document.getElementById("loginForm").addEventListener("submit", function(e){
     e.preventDefault();
 
-    let email = document.getElementById("loginEmail").value;
-    let pass = document.getElementById("loginPass").value;
+    let email = document.getElementById("loginEmail").value.trim().toLowerCase();
+    let pass = document.getElementById("loginPass").value.trim();
 
-    let savedEmail = localStorage.getItem("clinify_email");
-    let savedPass = localStorage.getItem("clinify_pass");
+    let savedEmail = (localStorage.getItem("clinify_email") || "").toLowerCase();
+    let savedPass = (localStorage.getItem("clinify_pass") || "").trim();
 
     if(email === savedEmail && pass === savedPass){
         localStorage.setItem("clinify_loggedin", "true");
         alert("Login Successful!");
-        window.location.href = "patient-dashboard/html/index.html";
+
+        window.location.href = "/Healthcare-website-Clinify/patient-dashboard/html/index.html";
+        
     } else {
         alert("Incorrect Email or Password");
     }
 });
 </script>
+
 
 
     <!-- JS -->
