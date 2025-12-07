@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Clinify — AI Symptom Checker</title>
+
+  <!-- GLOBAL shared CSS (navbar + layout) -->
+  <link rel="stylesheet" href="/patient-dashboard/css/appointment.css">
+
+  <!-- PAGE CSS -->
+  <link rel="stylesheet" href="/patient-dashboard/css/ai.css">
+</head>
+<body class="ai-page">
+
+  <!-- TOP NAVBAR (global) -->
+  <header class="topbar tint" role="banner">
+    <div class="nav-inner">
+      <div class="top-left">
+        <button id="hamburgerBtn" class="hamburger" aria-label="Open menu" aria-expanded="false">
+          <div class="ham-line top"></div>
+          <div class="ham-line middle"></div>
+          <div class="ham-line bottom"></div>
+        </button>
+
+        <img src="/assets/icons/logo.png" alt="logo" width="100px">
+        <div class="brand-title">
+          <div class="site-title">Clinify</div>
+          <div class="site-subtitle">AI Symptom Checker</div>
+        </div>
+      </div>
+
+      <div class="nav-spacer"></div>
+
+      <div class="nav-actions">
+        <div class="nav-bell" id="bellBtn" aria-haspopup="true" aria-expanded="false" role="button" tabindex="0">
+          <i class="bell-icon" aria-hidden="true"></i>
+          <span class="notif-badge" id="notifCount" aria-hidden="true">2</span>
+        </div>
+
+        <div class="notif-box" id="notifBox" aria-hidden="true">
+          <div class="notif-header">Notifications</div>
+          <div class="notif-item"><p>Welcome to Clinify AI.</p><span>Now</span></div>
+        </div>
+
+        <div class="nav-profile" id="profileBtn" aria-haspopup="true" aria-expanded="false">
+          <img src="/assets/patients/Natalie hughes.jpg" alt="profile">
+        </div>
+
+        <div class="profile-dropdown" id="profileDropdown" aria-hidden="true">
+          <a href="/patient-dashboard/html/profile.html" class="p-item">My Profile</a>
+          <a href="/patient-dashboard/html/settings.html" class="p-item">Settings</a>
+          <button class="p-item danger" onclick="window.location.href='/login.html'">Logout</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+  <div class="page">
+    <div class="frame">
+
+      <!-- SIDEBAR -->
+      <aside id="sidebar" class="sidebar" aria-label="Main navigation">
+        <div class="brand">
+          <img src="/assets/icons/logo.png" width="100px" alt="logo">
+          
+        </div>
+
+        <nav class="side-nav">
+          <a href="/patient-dashboard/html/index.html">Dashboard</a>
+          <a href="/patient-dashboard/html/appointment.html">Appointment Management</a>
+          <a href="/patient-dashboard/html/medical.html">Medical Records</a>
+          <a href="/patient-dashboard/html/telemedicine.html">Telemedicine</a>
+          <a class="active" href="/patient-dashboard/html/ai.html">AI Symptom Checker</a>
+          <a href="/patient-dashboard/html/prescription.html">Prescriptions</a>
+          <a href="/patient-dashboard/html/insurance.html">Insurance</a>
+          <a href="/patient-dashboard/html/profile.html">My Profile</a>
+          <a href="/patient-dashboard/html/notification.html">Notifications</a>
+          <a href="/patient-dashboard/html/settings.html">Settings</a>
+        </nav>
+      </aside>
+
+      <!-- MAIN -->
+      <main class="main">
+
+        <div class="toprow">
+          <div>
+            <div class="welcome">AI Symptom Checker</div>
+            <div class="sub">Type symptoms below and get suggestions (informational)</div>
+          </div>
+        </div>
+
+        <div class="mid">
+
+          <!-- LEFT COLUMN -->
+          <div class="left-col">
+
+            <!-- SYMPTOM FORM -->
+            <section class="panel card" aria-labelledby="ai-form-title">
+              <div class="panel-title" id="ai-form-title">Describe your symptoms</div>
+
+              <form id="aiForm" novalidate>
+                <label class="small muted" for="symptoms">Symptoms (comma separated)</label>
+                <input id="symptoms" name="symptoms" type="text" placeholder="e.g. headache, fever, sore throat" class="fullInput" required>
+
+                <label class="small muted" for="bodyPart" style="margin-top:10px">Affected area</label>
+                <select id="bodyPart" name="bodyPart" class="fullInput">
+                  <option value="general">General / Multiple</option>
+                  <option value="head">Head</option>
+                  <option value="chest">Chest</option>
+                  <option value="stomach">Abdomen</option>
+                  <option value="throat">Throat</option>
+                  <option value="skin">Skin</option>
+                  <option value="limbs">Limbs / Joints</option>
+                </select>
+
+                <label class="small muted" for="duration" style="margin-top:10px">Duration</label>
+                <select id="duration" name="duration" class="fullInput">
+                  <option value="hours">Less than 24 hours</option>
+                  <option value="days">1–3 days</option>
+                  <option value="week">More than 3 days</option>
+                  <option value="weeks">Weeks</option>
+                </select>
+
+                <label class="small muted" for="severity" style="margin-top:10px">Severity (1 = mild, 10 = severe)</label>
+                <input id="severity" name="severity" type="range" min="1" max="10" value="3" class="fullInput" aria-valuemin="1" aria-valuemax="10" aria-valuenow="3">
+
+                <div style="display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;">
+                  <button type="submit" class="btn primary">Get Suggestions</button>
+                  <button type="button" id="clearAI" class="btn ghost">Clear</button>
+                </div>
+              </form>
+
+            </section>
+
+            <!-- AI RESULTS (shows below form) -->
+            <section id="aiResults" class="panel card" style="margin-top:16px;display:none" aria-live="polite">
+              <div class="panel-title">AI Suggestions</div>
+              <div id="resultsContent">
+                <!-- filled by JS -->
+              </div>
+            </section>
+
+            <!-- Suggested next steps / disclaimer -->
+            <section class="panel card" style="margin-top:16px;">
+              <div class="panel-title">Important</div>
+              <div class="small muted">
+                The suggestions are informational only and not a diagnosis. If symptoms are severe, sudden, or worsening (for example chest pain, difficulty breathing, severe bleeding, fainting), seek immediate medical attention or call emergency services.
+              </div>
+            </section>
+
+          </div>
+
+          <!-- RIGHT COLUMN -->
+          <div class="right-col">
+
+            <section class="panel card">
+              <div class="panel-title">Quick Actions</div>
+              <button class="btn primary full" onclick="window.location.href='/patient-dashboard/html/appointment.html'">Book Appointment</button>
+              <button class="btn ghost full" style="margin-top:8px" onclick="window.location.href='/patient-dashboard/html/telemedicine.html'">Start Teleconsult</button>
+            </section>
+
+            <section class="panel card" style="margin-top:16px;">
+              <div class="panel-title">Recently Checked</div>
+              <div id="recentChecks" class="history">
+                <!-- saved by JS -->
+                <div class="item"><div>No recent checks</div></div>
+              </div>
+            </section>
+
+            <section class="panel card" style="margin-top:16px;">
+              <div class="panel-title">Health Tips</div>
+              <div class="history">
+                <div class="item"><div>Stay hydrated</div></div>
+                <div class="item"><div>Rest & monitor symptoms</div></div>
+                <div class="item"><div>Seek urgent care for severe symptoms</div></div>
+              </div>
+            </section>
+
+          </div>
+
+        </div>
+
+      </main>
+
+    </div>
+  </div>
+
+  <footer class="dash-web-footer">© 2025 Clinify. All Rights Reserved.</footer>
+
+  <!-- GLOBAL BEHAVIOUR (hamburger, notifications, profile) -->
+  <script src="/patient-dashboard/js/appointment.js"></script>
+
+  <!-- PAGE-SPECIFIC JS -->
+  <script src="/patient-dashboard/js/ai.js"></script>
+</body>
+</html>

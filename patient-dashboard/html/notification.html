@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Clinify — Notifications</title>
+
+  <!-- GLOBAL DASHBOARD CSS -->
+  <link rel="stylesheet" href="/patient-dashboard/css/style.css">
+  <!-- PAGE-SPECIFIC CSS -->
+  <link rel="stylesheet" href="/patient-dashboard/css/notification.css">
+</head>
+<body class="notifications-page">
+
+  <!-- TOP NAVBAR -->
+  <header class="topbar tint" role="banner">
+    <div class="nav-inner">
+      <div class="top-left">
+
+        <!-- Hamburger (mobile only: hidden on desktop by global CSS) -->
+        <button id="hamburgerBtn" class="hamburger" aria-label="Open menu" aria-expanded="false">
+          <div class="ham-line top"></div>
+          <div class="ham-line middle"></div>
+          <div class="ham-line bottom"></div>
+        </button>
+
+        <!-- Logo -->
+        <img src="/assets/icons/logo.png" alt="logo" width="100px">
+
+        <!-- Brand -->
+        <div class="brand-title">
+          <div class="site-title">Clinify</div>
+          <div class="site-subtitle">Notifications</div>
+        </div>
+      </div>
+
+      <div class="nav-spacer"></div>
+
+      <div class="nav-actions">
+
+        <!-- Notification Bell (navbar) -->
+        <div class="nav-bell" id="bellBtn" role="button" tabindex="0" title="Notifications">
+          <i class="bell-icon"></i>
+          <span class="notif-badge" id="notifCount">5</span>
+        </div>
+
+        <!-- Small dropdown (navbar notifications) -->
+        <div class="notif-box" id="notifBox" aria-hidden="true">
+          <div class="notif-header">Recent Notifications</div>
+          <div class="notif-item">
+            <p>Appointment with Dr. Tello confirmed.</p>
+            <span>10 mins ago</span>
+          </div>
+          <div class="notif-item">
+            <p>New lab report available.</p>
+            <span>1 hour ago</span>
+          </div>
+          <div class="notif-item">
+            <p>Prescription updated by Dr. Reed.</p>
+            <span>Yesterday</span>
+          </div>
+        </div>
+
+        <!-- Profile icon -->
+        <div class="nav-profile" id="profileBtn" role="button" tabindex="0" title="Account">
+          <img src="/assets/patients/Natalie hughes.jpg" alt="profile">
+        </div>
+
+        <!-- Profile dropdown -->
+        <div class="profile-dropdown" id="profileDropdown" aria-hidden="true">
+          <a href="/patient-dashboard/html/profile.html" class="p-item">My Profile</a>
+          <a href="/patient-dashboard/html/settings.html" class="p-item">Settings</a>
+          <button class="p-item danger" onclick="window.location.href='/login.html'">Logout</button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Overlay for mobile sidebar -->
+  <div id="sidebarOverlay" class="sidebar-overlay" tabindex="-1" aria-hidden="true"></div>
+
+  <!-- PAGE -->
+  <div class="page">
+    <div class="frame">
+
+      <!-- SIDEBAR -->
+      <aside id="sidebar" class="sidebar" aria-label="Main navigation">
+        <div class="brand">
+          <img src="/assets/icons/logo.png" width="100px" alt="logo">
+         
+        </div>
+
+        <nav class="side-nav">
+          <a href="/patient-dashboard/html/index.html">Dashboard</a>
+          <a href="/patient-dashboard/html/appointment.html">Appointment Management</a>
+          <a href="/patient-dashboard/html/medical.html">Medical Records</a>
+          <a href="/patient-dashboard/html/telemedicine.html">Telemedicine</a>
+          <a href="/patient-dashboard/html/ai.html">AI Symptom Checker</a>
+          <a href="/patient-dashboard/html/prescription.html">Prescriptions</a>
+          <a href="/patient-dashboard/html/insurance.html">Insurance</a>
+          <a href="/patient-dashboard/html/profile.html">My Profile</a>
+          <a href="/patient-dashboard/html/notification.html" class="active">Notifications</a>
+          <a href="/patient-dashboard/html/settings.html">Settings</a>
+          
+        </nav>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <main class="main">
+
+        <!-- Top row -->
+        <div class="toprow">
+          <div>
+            <div class="welcome">Notifications</div>
+            <div class="sub">Review all your alerts, reminders and updates</div>
+          </div>
+        </div>
+
+        <!-- MID GRID: two-column layout (left list, right summary) -->
+        <div class="mid notifications-grid">
+
+          <!-- LEFT COLUMN: main notifications list -->
+          <div class="left-col">
+
+            <!-- Filter tabs -->
+            <section class="panel card">
+              <div class="notif-tabs" id="notifTabs">
+                <button class="tab active" data-filter="all">All</button>
+                <button class="tab" data-filter="appointment">Appointments</button>
+                <button class="tab" data-filter="report">Reports</button>
+                <button class="tab" data-filter="prescription">Prescriptions</button>
+                <button class="tab" data-filter="system">System</button>
+              </div>
+            </section>
+
+            <!-- List -->
+            <section class="panel card" style="margin-top:16px;">
+              <div class="panel-title">All Notifications</div>
+              <div id="notifList" class="notif-list">
+                <!-- JS will inject items here -->
+              </div>
+            </section>
+
+          </div>
+
+          <!-- RIGHT COLUMN: quick actions / summary -->
+          <div class="right-col">
+
+            <!-- Quick Actions -->
+            <section class="panel card">
+              <div class="panel-title">Quick Actions</div>
+              <p class="small muted">
+                Manage your notifications in one click.
+              </p>
+
+              <button id="markAllReadBtn" class="btn primary full" style="margin-top:10px;">
+                Mark all as read
+              </button>
+              <button id="clearAllBtn" class="btn ghost full" style="margin-top:8px;">
+                Clear all notifications
+              </button>
+
+              <div class="small muted" id="notifSummary" style="margin-top:10px;">
+                <!-- JS summary here -->
+              </div>
+            </section>
+
+            <!-- Category Legend -->
+            <section class="panel card" style="margin-top:16px;">
+              <div class="panel-title">Categories</div>
+
+              <div class="legend-item">
+                <div class="legend-dot type-appointment"></div>
+                <div>
+                  <div class="pref-title">Appointments</div>
+                  <div class="small muted">Reminders, confirmations, reschedules</div>
+                </div>
+              </div>
+
+              <div class="legend-item">
+                <div class="legend-dot type-report"></div>
+                <div>
+                  <div class="pref-title">Reports</div>
+                  <div class="small muted">Lab results and medical documents</div>
+                </div>
+              </div>
+
+              <div class="legend-item">
+                <div class="legend-dot type-prescription"></div>
+                <div>
+                  <div class="pref-title">Prescriptions</div>
+                  <div class="small muted">New or updated prescriptions</div>
+                </div>
+              </div>
+
+              <div class="legend-item">
+                <div class="legend-dot type-system"></div>
+                <div>
+                  <div class="pref-title">System</div>
+                  <div class="small muted">Security, login and system alerts</div>
+                </div>
+              </div>
+            </section>
+
+          </div>
+
+        </div>
+
+      </main>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="dash-web-footer">© 2025 Clinify. All Rights Reserved.</footer>
+
+  <!-- GLOBAL NAVBAR / SIDEBAR JS -->
+  <script src="/patient-dashboard/js/script.js"></script>
+  <!-- PAGE-SPECIFIC JS -->
+  <script src="/patient-dashboard/js/notification.js"></script>
+</body>
+</html>

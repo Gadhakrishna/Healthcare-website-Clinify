@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Clinify — Insurance</title>
+
+  <!-- SHARED GLOBAL CSS (navbar + layout) -->
+  <link rel="stylesheet" href="/patient-dashboard/css/appointment.css">
+
+  <!-- PAGE CSS -->
+  <link rel="stylesheet" href="/patient-dashboard/css/insurance.css">
+</head>
+<body class="insu-page">
+
+  <!-- TOP NAVBAR -->
+  <header class="topbar tint" role="banner">
+    <div class="nav-inner">
+      <div class="top-left">
+        <button id="hamburgerBtn" class="hamburger" aria-label="Open menu" aria-expanded="false">
+          <div class="ham-line top"></div>
+          <div class="ham-line middle"></div>
+          <div class="ham-line bottom"></div>
+        </button>
+
+        <img src="/assets/icons/logo.png" alt="logo" width="100px">
+        <div class="brand-title">
+          <div class="site-title">Clinify</div>
+          <div class="site-subtitle">Insurance</div>
+        </div>
+      </div>
+
+      <div class="nav-spacer"></div>
+
+      <div class="nav-actions">
+        <div class="nav-bell" id="bellBtn" role="button" tabindex="0">
+          <i class="bell-icon"></i>
+          <span class="notif-badge" id="notifCount">1</span>
+        </div>
+
+        <div class="notif-box" id="notifBox" aria-hidden="true">
+          <div class="notif-header">Notifications</div>
+          <div class="notif-item"><p>Policy renewal in 30 days</p><span>Today</span></div>
+        </div>
+
+        <div class="nav-profile" id="profileBtn">
+          <img src="/assets/patients/Natalie hughes.jpg" alt="profile">
+        </div>
+
+        <div class="profile-dropdown" id="profileDropdown" aria-hidden="true">
+          <a href="/patient-dashboard/html/profile.html" class="p-item">My Profile</a>
+          <a href="/patient-dashboard/html/settings.html" class="p-item">Settings</a>
+          <button class="p-item danger" onclick="window.location.href='/login.html'">Logout</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- overlay -->
+  <div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+  <!-- page -->
+  <div class="page">
+    <div class="frame">
+
+      <!-- SIDEBAR -->
+      <aside id="sidebar" class="sidebar" role="navigation">
+        <div class="brand">
+          <img src="/assets/icons/logo.png" width="100px" alt="logo">
+          
+        </div>
+
+        <nav class="side-nav">
+          <a href="/patient-dashboard/html/index.html">Dashboard</a>
+          <a href="/patient-dashboard/html/appointment.html">Appointment Management</a>
+          <a href="/patient-dashboard/html/medical.html">Medical Records</a>
+          <a href="/patient-dashboard/html/telemedicine.html">Telemedicine</a>
+          <a href="/patient-dashboard/html/ai.html">AI Symptom Checker</a>
+          <a href="/patient-dashboard/html/prescription.html">Prescriptions</a>
+          <a class="active" href="/patient-dashboard/html/insurance.html">Insurance</a>
+          <a href="/patient-dashboard/html/profile.html">My Profile</a>
+          <a href="/patient-dashboard/html/notification.html">Notifications</a>
+          <a href="/patient-dashboard/html/settings.html">Settings</a>
+        </nav>
+      </aside>
+
+      <!-- MAIN -->
+      <main class="main">
+
+        <div class="toprow">
+          <div>
+            <div class="welcome">Insurance Portal</div>
+            <div class="sub">Manage policies, claims and members</div>
+          </div>
+        </div>
+
+        <div class="mid">
+
+          <!-- LEFT COLUMN -->
+          <div class="left-col">
+
+            <!-- My Policies -->
+            <section class="panel card" id="policiesPanel">
+              <div class="panel-title">My Policies</div>
+              <div id="policiesList" class="history">
+                <!-- populated by JS -->
+              </div>
+              <div style="margin-top:10px;display:flex;gap:8px;">
+                <button id="addPolicyBtn" class="btn primary">Add New Policy</button>
+                <button id="uploadPolicyDocBtn" class="btn ghost" onclick="document.getElementById('docFile').click()">Upload Document</button>
+                <input id="docFile" type="file" accept="image/*,.pdf" style="display:none">
+              </div>
+            </section>
+
+            <!-- Claims History -->
+            <section class="panel card" style="margin-top:16px;">
+              <div class="panel-title">Claims History</div>
+              <div id="claimsList" class="history">
+                <!-- populated by JS -->
+              </div>
+              <div style="margin-top:10px;">
+                <button id="newClaimBtn" class="btn primary">Submit New Claim</button>
+              </div>
+            </section>
+
+            <!-- ID Card Viewer -->
+            <section class="panel card" style="margin-top:16px;">
+              <div class="panel-title">ID Card</div>
+              <div id="idCardContainer">
+                <!-- small preview + view button -->
+              </div>
+            </section>
+
+          </div>
+
+          <!-- RIGHT COLUMN -->
+          <div class="right-col">
+
+            <section class="panel card">
+              <div class="panel-title">Quick Actions</div>
+              <button id="quickRenewBtn" class="btn primary full">Quick Renew</button>
+              <button id="addNomineeBtn" class="btn ghost full" style="margin-top:8px">Add Nominee</button>
+              <button id="supportChatBtn" class="btn ghost full" style="margin-top:8px">Open Support Chat</button>
+            </section>
+
+            <section class="panel card" style="margin-top:16px;">
+              <div class="panel-title">Premium Calculator</div>
+              <label class="small muted">Sum Insured</label>
+              <select id="sumInsured" class="fullInput">
+                <option value="500000">₹ 5,00,000</option>
+                <option value="1000000">₹ 10,00,000</option>
+                <option value="2000000">₹ 20,00,000</option>
+              </select>
+
+              <label class="small muted" style="margin-top:8px">Age</label>
+              <input id="calcAge" type="number" min="0" max="120" value="30" class="fullInput">
+
+              <label class="small muted" style="margin-top:8px">Policy Term (yrs)</label>
+              <select id="policyTerm" class="fullInput">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </select>
+
+              <div style="margin-top:10px;display:flex;gap:8px;">
+                <button id="calcPremiumBtn" class="btn primary">Calculate</button>
+                <div id="premiumResult" class="small muted" style="align-self:center"></div>
+              </div>
+            </section>
+
+            <section class="panel card" style="margin-top:16px;">
+              <div class="panel-title">Linked Members</div>
+              <div id="membersList" class="history"></div>
+              <div style="margin-top:8px;">
+                <button id="linkMemberBtn" class="btn ghost">Link Family Member</button>
+              </div>
+            </section>
+
+          </div>
+
+        </div>
+
+      </main>
+
+    </div>
+  </div>
+
+  <footer class="dash-web-footer">© 2025 Clinify. All Rights Reserved.</footer>
+
+  <!-- SHARED SCRIPTS -->
+  <script src="/patient-dashboard/js/script.js"></script>
+
+  <!-- PAGE SCRIPT -->
+  <script src="/patient-dashboard/js/insurance.js"></script>
+
+</body>
+</html>

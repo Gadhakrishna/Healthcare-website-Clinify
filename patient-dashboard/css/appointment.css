@@ -1,0 +1,322 @@
+/* appointment.css — updated */
+
+/* google font (user-provided snippet added) */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ovo&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* root color */
+:root {
+    --blue:#222ba5;
+    --black:#000000;
+    --white:#ffff;
+}
+
+/* custom css (user-provided snippet) */
+* {
+    font-family: "Ovo", serif;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    /* text-transform: capitalize; */
+    outline: none;
+    box-sizing: border-box;
+    transition: all linear .2s;
+}
+
+
+/* --- rest of appointment.css (keeps look & feel) --- */
+
+:root{
+  --bg:#f0f6ff;
+  --nav:#ffffff;
+  --card:#ffffff;
+  --accent:#222ba5;
+  --muted:#6b7280;
+  --shadow:0 10px 30px rgba(15,25,40,0.06);
+  --radius:14px;
+  --max-width:1180px;
+  --text:#0b1b33;
+}
+
+/* reset */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:'Inter',sans-serif;
+  background:linear-gradient(180deg,var(--bg),#ffffff);
+  color:var(--text);
+  line-height:1.35;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* topbar */
+.topbar{
+  position:sticky;top:0;z-index:60;
+  padding:10px 18px;border-bottom:1px solid rgba(11,118,255,0.06);
+  background: linear-gradient(180deg, rgba(11,118,255,0.06), rgba(255,255,255,0.55));
+  backdrop-filter: blur(6px);
+}
+.nav-inner{max-width:var(--max-width);margin:0 auto;display:flex;align-items:center;gap:12px}
+.top-left{display:flex;align-items:center;gap:12px}
+.brand-title .site-title{font-weight:700;font-size:18px}
+.brand-title .site-subtitle{font-size:13px;color:var(--muted)}
+.nav-spacer{flex:1}
+.nav-actions{position:relative;display:flex;gap:10px;align-items:center}
+
+/* hamburger */
+.hamburger{width:46px;height:46px;border-radius:12px;background:rgba(11,118,255,0.10);display:flex;flex-direction:column;justify-content:center;gap:5px;padding:8px;border:none;cursor:pointer;display: none;}
+.ham-line{height:3px;border-radius:10px;background:#0b3469;width:22px;transition:0.25s}
+
+/* nav profile */
+.nav-profile img{width:40px;height:40px;border-radius:50%;object-fit:cover}
+
+.nav-profile {
+    cursor: pointer !important;
+    position: relative;
+    z-index: 3000;          /* always above notification box */
+}
+
+.nav-profile img {
+    cursor: pointer !important;
+    pointer-events: auto !important;
+}
+
+
+/* bell */
+.nav-bell{width:42px;height:42px;border-radius:12px;background:rgba(11,118,255,0.10);display:flex;align-items:center;justify-content:center;position:relative;cursor:pointer}
+.bell-icon{width:18px;height:18px;border:2px solid #0b3469;border-bottom:transparent;border-radius:50% 50% 0 0;position:relative}
+.notif-badge{position:absolute;top:6px;right:6px;background:#ff3b30;color:#fff;padding:2px 6px;border-radius:999px;font-weight:700;font-size:11px}
+
+/* layout */
+.page{max-width:var(--max-width);margin:18px auto;padding:0 18px 60px}
+.frame{display:grid;grid-template-columns:240px 1fr;gap:22px;align-items:start}
+
+/* sidebar */
+.sidebar{background:var(--nav);border-radius:var(--radius);padding:20px;height:calc(100vh - 140px);position:sticky;top:110px;overflow:auto;box-shadow:var(--shadow)}
+.side-nav{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+.side-nav a{color:rgba(0,0,0,0.92);text-decoration:none;padding:10px;border-radius:8px;font-weight:600}
+.side-nav a.active{background:linear-gradient(90deg, rgba(11,118,255,0.08), rgba(11,118,255,0.03));border-left:3px solid var(--accent);padding-left:8px}
+
+/* overlay/offcanvas */
+.sidebar-overlay{position:fixed;inset:0;background:rgba(3,10,25,0.45);z-index:50;opacity:0;pointer-events:none;transition:opacity 220ms}
+.sidebar-overlay.visible{opacity:1;pointer-events:auto}
+.sidebar.offcanvas{position:fixed;left:0;top:0;bottom:0;height:100vh;width:280px;transform:translateX(-110%);transition:transform 260ms;z-index:55}
+.sidebar.offcanvas.open{transform:translateX(0%)}
+
+/* main */
+.main{min-height:calc(100vh - 160px)}
+.toprow{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.welcome{font-size:24px;font-weight:800}
+.sub{color:var(--muted);font-size:14px;margin-top:4px}
+
+/* vitals */
+.vitals-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:20px}
+.v-card{border-radius:12px;padding:18px;background:var(--card);box-shadow:var(--shadow)}
+.v-card .title{font-size:13px;color:var(--muted)}
+.v-card .value{font-size:22px;font-weight:800;margin-top:6px}
+.v-card .note{margin-top:6px;font-size:12px;color:var(--muted)}
+
+/* mid area: 50/50 as requested (A3) */
+.mid{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
+
+/* panels/cards */
+.panel{background:white;padding:18px;border-radius:12px;box-shadow:var(--shadow)}
+.panel-title{font-weight:700;font-size:16px;margin-bottom:8px}
+.history .item{background:#fff;padding:10px;border-radius:8px;margin-top:8px;display:flex;justify-content:space-between;border:1px solid rgba(11,118,255,0.06)}
+
+/* buttons */
+.btn{border:none;padding:10px 12px;border-radius:10px;font-weight:700;cursor:pointer}
+.btn.primary{background:var(--accent);color:white}
+.btn.ghost{background:transparent;border:1px solid rgba(11,118,255,0.12)}
+.btn.full{width:100%;padding:10px}
+
+/* profile dropdown & notif box */
+.profile-dropdown{
+  position:absolute;
+  top:58px;
+  right:10px;
+  min-width:180px;
+  background:rgba(255,255,255,0.96);
+  backdrop-filter:blur(8px);
+  border-radius:12px;
+  box-shadow:0 12px 36px rgba(2,6,23,0.12);
+  padding:8px;
+  display:none;
+  z-index:1200;
+}
+.profile-dropdown .p-item{
+  display:block;
+  padding:10px 12px;
+  text-decoration:none;
+  color:var(--text);
+  border-radius:8px;
+  font-weight:600;
+  background:transparent;
+  width:100%;
+  border:none;
+  cursor:pointer;
+}
+.profile-dropdown .p-item:hover{
+  background:rgba(11,118,255,0.06);
+}
+.profile-dropdown .p-item.danger{
+  color:#cc0808;
+  font-weight:700;
+}
+/* inputs */
+.fullInput{width:100%;padding:10px;border-radius:10px;border:1px solid rgba(0,0,0,0.1);margin-top:6px}
+
+/* --- NEW: layout for the right column to make two panels side-by-side --- */
+/* Wrap the two panels in a container with .two-cols (see HTML change below) */
+.two-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  align-items: start;
+  margin-top: 16px;
+}
+
+/* ensure each panel fills its grid cell */
+.two-cols .panel {
+  margin-top: 0; /* panels already spaced by grid */
+}
+
+.btn.ghost:hover {
+    letter-spacing: .1rem;
+    color: var(--accent);
+    border-color: #0a1169;
+    border-radius: 30px;
+    border: solid 1px;
+
+}
+
+.btn.primary:hover {
+    background:var(--accent);
+    letter-spacing: .1rem;
+    color: white;
+    border-color: #0a1169;
+    border-radius: 30px;
+    border: solid 1px;
+}
+
+
+/* responsive: stack the two panels on narrow screens */
+@media (max-width: 860px) {
+  .two-cols {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* footer */
+.dash-web-footer{background:#eef3ff;padding:20px 0;text-align:center;margin-top:24px;border-top:1px solid rgba(0,0,0,0.08);color:#4a5270;font-size:14px;border-radius:8px}
+
+
+/* ================================
+   FIXED NOTIFICATION DROPDOWN
+   (Fully matches main dashboard)
+==================================== */
+
+/* Dropdown container */
+.notif-box{
+  position:absolute;
+  top:60px;
+  right:10px;
+  width:320px;
+  background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(10px);
+  border-radius:14px;
+  box-shadow:0 10px 40px rgba(0,0,0,0.12);
+  padding:0;
+  display:none;
+  overflow:hidden;
+  animation:fadeDown 0.22s ease;
+  z-index:2000;
+}
+
+/* Animation */
+@keyframes fadeDown{
+  from{opacity:0;transform:translateY(-8px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+/* Header */
+.notif-header{
+  font-weight:700;
+  font-size:16px;
+  padding:12px 14px;
+  background:rgba(11,118,255,0.08);
+}
+
+/* Items */
+.notif-item{
+  padding:12px 14px;
+  border-bottom:1px solid rgba(0,0,0,0.06);
+  cursor:pointer;
+}
+.notif-item:hover{
+  background:rgba(11,118,255,0.06);
+}
+.notif-item p{
+  margin:0;
+  font-size:14px;
+  color:#0b3469;
+}
+.notif-item span{
+  font-size:11px;
+  color:var(--muted);
+}
+
+/* Mobile alignment fix */
+@media (max-width: 860px) {
+  .notif-box{
+    left:8px !important;
+    right:8px !important;
+    width:auto !important;
+  }
+}
+
+
+/* responsiveness */
+@media (max-width:1020px){
+  .frame{grid-template-columns:200px 1fr}
+}
+@media (max-width:860px){
+  .hamburger{display:inline-flex}
+  .frame{grid-template-columns:1fr;gap:14px}
+  .sidebar{display:none}
+  .sidebar.offcanvas{display:block}
+  .mid{grid-template-columns:1fr}
+  .page{padding-top:8px}
+  .notif-box, .profile-dropdown{right:8px;left:8px}
+}
+
+/* very small */
+@media (max-width:420px){
+  .welcome{font-size:20px}
+  .v-card .value{font-size:18px}
+}
+
+/* ensure offcanvas z-index high on mobile */
+@media (max-width:860px){
+  .sidebar.offcanvas{z-index:2500}
+}
+
+/* small aesthetic tweaks */
+.small{font-size:12px}
+.muted{color:var(--muted)}
+
+
+/* keep mobile brand-title hide */
+@media (max-width: 500px) {
+  .brand-title {
+    display: none !important;
+  }
+}
+
+@media (max-width: 800px) {
+  .btn.full {
+    width: 60%;     
+    margin:10px auto;    /* centers automatically */
+    display: block;    /* required for auto margin */
+}
+}
+

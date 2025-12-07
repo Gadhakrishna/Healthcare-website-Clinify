@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Clinify — Settings</title>
+
+  <!-- GLOBAL DASHBOARD CSS -->
+  <link rel="stylesheet" href="/patient-dashboard/css/appointment.css">
+
+  <!-- PAGE-SPECIFIC CSS -->
+  <link rel="stylesheet" href="/patient-dashboard/css/settings.css">
+</head>
+<body class="settings-page">
+
+  <!-- TOP NAVBAR -->
+  <header class="topbar tint" role="banner">
+    <div class="nav-inner">
+      <div class="top-left">
+
+        <!-- Hamburger (mobile only; hidden on desktop by global CSS) -->
+        <button id="hamburgerBtn" class="hamburger" aria-label="Open menu" aria-expanded="false">
+          <div class="ham-line top"></div>
+          <div class="ham-line middle"></div>
+          <div class="ham-line bottom"></div>
+        </button>
+
+        <!-- Logo + Title -->
+        <img src="/assets/icons/logo.png" alt="logo" width="100px">
+
+        <div class="brand-title">
+          <div class="site-title">Clinify</div>
+          <div class="site-subtitle">Settings</div>
+        </div>
+      </div>
+
+      <div class="nav-spacer"></div>
+
+      <div class="nav-actions">
+
+        <!-- Notification Bell -->
+        <div class="nav-bell" id="bellBtn" role="button" tabindex="0" title="Notifications">
+          <i class="bell-icon"></i>
+          <span class="notif-badge" id="notifCount">3</span>
+        </div>
+
+        <!-- Notification Dropdown -->
+        <div class="notif-box" id="notifBox" aria-hidden="true">
+          <div class="notif-header">Notifications</div>
+          <div class="notif-item">
+            <p>Password changed successfully.</p>
+            <span>Just now</span>
+          </div>
+          <div class="notif-item">
+            <p>New login from Chrome on Windows.</p>
+            <span>1 hr ago</span>
+          </div>
+          <div class="notif-item">
+            <p>Reminder: Update your emergency contact.</p>
+            <span>Yesterday</span>
+          </div>
+        </div>
+
+        <!-- Profile Icon -->
+        <div class="nav-profile" id="profileBtn" role="button" tabindex="0" title="Account">
+          <img src="/assets/patients/Natalie hughes.jpg" alt="profile">
+        </div>
+
+        <!-- Profile Dropdown -->
+        <div class="profile-dropdown" id="profileDropdown" aria-hidden="true">
+          <a href="/patient-dashboard/html/profile.html" class="p-item">My Profile</a>
+          <a href="/patient-dashboard/html/settings.html" class="p-item">Settings</a>
+          <button class="p-item danger" onclick="window.location.href='/login.html'">Logout</button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Overlay for mobile sidebar -->
+  <div id="sidebarOverlay" class="sidebar-overlay" tabindex="-1" aria-hidden="true"></div>
+
+  <!-- PAGE -->
+  <div class="page">
+    <div class="frame">
+
+      <!-- SIDEBAR -->
+      <aside id="sidebar" class="sidebar" role="navigation" aria-label="Main navigation">
+        <div class="brand">
+          <img src="/assets/icons/logo.png" width="100px" alt="logo">
+          
+        </div>
+
+        <nav class="side-nav">
+          <a href="/patient-dashboard/html/index.html">Dashboard</a>
+          <a href="/patient-dashboard/html/appointment.html">Appointment Management</a>
+          <a href="/patient-dashboard/html/medical.html">Medical Records</a>
+          <a href="/patient-dashboard/html/telemedicine.html">Telemedicine</a>
+          <a href="/patient-dashboard/html/ai.html">AI Symptom Checker</a>
+          <a href="/patient-dashboard/html/prescription.html">Prescriptions</a>
+          <a href="/patient-dashboard/html/insurance.html">Insurance</a>
+          <a href="/patient-dashboard/html/profile.html">My Profile</a>
+          <a href="/patient-dashboard/html/notification.html">Notifications</a>
+          <a href="/patient-dashboard/html/settings.html" class="active">Settings</a>
+          <!-- Settings mainly from top dropdown, but you can add here if you want -->
+        </nav>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <main class="main">
+
+        <!-- Header row -->
+        <div class="toprow">
+          <div>
+            <div class="welcome">Settings</div>
+            <div class="sub">Manage your account, security and preferences</div>
+          </div>
+        </div>
+
+        <!-- MID GRID (2 equal columns; controlled in settings.css) -->
+        <div class="mid settings-grid">
+
+          <!-- LEFT COLUMN -->
+          <div class="left-col">
+
+            <!-- Account Information -->
+            <section class="panel card">
+              <div class="panel-title">Account Information</div>
+              <form id="accountForm" class="settings-form-grid" novalidate>
+                <div>
+                  <label class="small muted">Full Name</label>
+                  <input id="accName" type="text" class="fullInput" value="Natalie Hughes" required>
+                </div>
+                <div>
+                  <label class="small muted">Email</label>
+                  <input id="accEmail" type="email" class="fullInput" value=" natalie.hughes.ny@gmail.com" required>
+                </div>
+                <div>
+                  <label class="small muted">Phone</label>
+                  <input id="accPhone" type="tel" class="fullInput" value="+91 98765 43210">
+                </div>
+                
+                <div style="grid-column:1 / -1; margin-top:4px;">
+                  <button type="submit" class="btn primary">Save Account Settings</button>
+                  <span id="accountSaveMsg" class="small muted" style="margin-left:8px;"></span>
+                </div>
+              </form>
+            </section>
+
+            <!-- Change Password (simple style chosen) -->
+            <section class="panel card" style="margin-top:16px;">
+              <div class="panel-title">Change Password</div>
+              <form id="passwordForm" class="settings-form-grid" novalidate>
+                <div style="grid-column:1 / -1;">
+                  <label class="small muted">Current Password</label>
+                  <input id="currentPassword" type="password" class="fullInput" required>
+                </div>
+                <div>
+                  <label class="small muted">New Password</label>
+                  <input id="newPassword" type="password" class="fullInput" required>
+                </div>
+                <div>
+                  <label class="small muted">Confirm New Password</label>
+                  <input id="confirmPassword" type="password" class="fullInput" required>
+                </div>
+                <div style="grid-column:1 / -1; margin-top:4px;">
+                  <button type="submit" class="btn primary">Update Password</button>
+                  <span id="passwordMsg" class="small muted" style="margin-left:8px;"></span>
+                </div>
+              </form>
+              <div class="small muted" style="margin-top:8px;">
+                For security, your password is validated on the server (demo only here).
+              </div>
+            </section>
+
+            <!-- Danger Zone -->
+            <section class="panel card danger-zone" style="margin-top:16px;">
+              <div class="panel-title">Danger Zone</div>
+              <p class="small muted">
+                Deleting your account will remove your access to Clinify. Medical records might still be kept securely by the clinic as per regulations.
+              </p>
+              <button id="deleteAccountBtn" class="btn danger full" type="button">
+                Delete My Account
+              </button>
+            </section>
+
+          </div>
+
+          <!-- RIGHT COLUMN -->
+          <div class="right-col">
+
+            <!-- Notification Preferences -->
+            <section class="panel card">
+              <div class="panel-title">Notification Preferences</div>
+
+              <div class="pref-row">
+                <div>
+                  <div class="pref-title">Appointment reminders</div>
+                  <div class="small muted">SMS & email before visits</div>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" id="notifAppt" checked>
+                  <span class="slider"></span>
+                </label>
+              </div>
+
+              <div class="pref-row">
+                <div>
+                  <div class="pref-title">Lab report alerts</div>
+                  <div class="small muted">When new reports are uploaded</div>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" id="notifLab" checked>
+                  <span class="slider"></span>
+                </label>
+              </div>
+
+              <div class="pref-row">
+                <div>
+                  <div class="pref-title">Promotional updates</div>
+                  <div class="small muted">Occasional offers & health camps</div>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" id="notifPromo">
+                  <span class="slider"></span>
+                </label>
+              </div>
+
+            </section>
+
+            <!-- Privacy & Security -->
+            <section class="panel card" style="margin-top:16px;">
+              <div class="panel-title">Privacy & Security</div>
+
+              <div class="pref-row">
+                <div>
+                  <div class="pref-title">Share anonymised data</div>
+                  <div class="small muted">Help improve services using anonymised analytics</div>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" id="privacyAnonymised">
+                  <span class="slider"></span>
+                </label>
+              </div>
+
+              <div class="pref-row">
+                <div>
+                  <div class="pref-title">Allow telemedicine recording</div>
+                  <div class="small muted">For quality and medico-legal compliance</div>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" id="privacyRecord" checked>
+                  <span class="slider"></span>
+                </label>
+              </div>
+
+              <div class="pref-row">
+                <div>
+                  <div class="pref-title">Remember this device</div>
+                  <div class="small muted">Skip OTP on this device (where allowed)</div>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" id="privacyRemember">
+                  <span class="slider"></span>
+                </label>
+              </div>
+            </section>
+
+            <!-- Language & Sessions -->
+            <section class="panel card" style="margin-top:16px;">
+              
+
+              <div style="margin-top:12px;">
+                <div class="pref-title">Active Sessions</div>
+                <div class="small muted" id="sessionInfo">
+                  Logged in on this device.
+                </div>
+              </div>
+
+              <button id="logoutAllBtn" class="btn ghost full" style="margin-top:10px;">
+                Logout from all devices
+              </button>
+            </section>
+
+          </div>
+
+        </div>
+
+      </main>
+
+    </div>
+  </div>
+
+  <footer class="dash-web-footer">© 2025 Clinify. All Rights Reserved.</footer>
+
+  <!-- GLOBAL NAVBAR / SIDEBAR JS -->
+  <script src="/patient-dashboard/js/script.js"></script>
+
+  <!-- PAGE-SPECIFIC JS -->
+  <script src="/patient-dashboard/js/settings.js"></script>
+</body>
+</html>

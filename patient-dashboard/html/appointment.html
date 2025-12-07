@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Clinify — Appointment Management</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Page-specific CSS -->
+  <link rel="stylesheet" href="/patient-dashboard/css/appointment.css">
+</head>
+
+<body>
+
+  <!-- TOP NAVBAR -->
+  <header class="topbar tint" role="banner">
+    <div class="nav-inner">
+
+      <div class="top-left">
+
+        <!-- Hamburger -->
+        <button id="hamburgerBtn" class="hamburger" aria-label="Open menu" aria-expanded="false">
+          <div class="ham-line top"></div>
+          <div class="ham-line middle"></div>
+          <div class="ham-line bottom"></div>
+        </button>
+
+        <!-- Logo -->
+        <img src="/assets/icons/logo.png" alt="logo" width="100px">
+
+        <div class="brand-title">
+          <div class="site-title">Clinify</div>
+          <div class="site-subtitle">Appointment Management</div>
+        </div>
+      </div>
+
+      <div class="nav-spacer"></div>
+
+      <div class="nav-actions">
+
+        <!-- Notification Bell -->
+        <div class="nav-bell" id="bellBtn" role="button" tabindex="0">
+          <i class="bell-icon"></i>
+          <span id="notifCount" class="notif-badge">2</span>
+        </div>
+
+        <!-- Notification Dropdown -->
+        <div class="notif-box" id="notifBox" aria-hidden="true">
+          <div class="notif-header">Notifications</div>
+          <div class="notif-item"><p>Appointment Reminder</p><span>20 mins ago</span></div>
+          <div class="notif-item"><p>Message from Dr. Reed</p><span>Yesterday</span></div>
+        </div>
+
+        <!-- Profile -->
+        <div class="nav-profile" id="profileBtn" tabindex="0">
+          <img src="/assets/patients/Natalie hughes.jpg" alt="profile">
+        </div>
+
+        <!-- Profile Dropdown -->
+        <div class="profile-dropdown" id="profileDropdown" aria-hidden="true">
+          <a href="/patient-dashboard/html/profile.html" class="p-item">My Profile</a>
+          <a href="/patient-dashboard/html/settings.html" class="p-item">Settings</a>
+          <button class="p-item danger" onclick="window.location.href='/login.html'">Logout</button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Overlay -->
+  <div id="sidebarOverlay" class="sidebar-overlay" tabindex="-1" aria-hidden="true"></div>
+
+  <!-- PAGE -->
+  <div class="page">
+    <div class="frame">
+
+      <!-- SIDEBAR -->
+      <aside id="sidebar" class="sidebar" role="navigation" aria-label="Main navigation">
+        <div class="brand">
+          <img src="/assets/icons/logo.png" width="100px" alt="logo">
+          
+        </div>
+
+        <nav class="side-nav">
+          <a href="/patient-dashboard/html/index.html">Dashboard</a>
+          <a href="/patient-dashboard/html/appointment.html" class="active">Appointment Management</a>
+          <a href="/patient-dashboard/html/medical.html">Medical Records</a>
+          <a href="/patient-dashboard/html/telemedicine.html">Telemedicine</a>
+          <a href="/patient-dashboard/html/ai.html">AI Symptom Checker</a>
+          <a href="/patient-dashboard/html/prescription.html">Prescriptions</a>
+          <a href="/patient-dashboard/html/insurance.html">Insurance</a>
+          <a href="/patient-dashboard/html/profile.html">My Profile</a>
+          <a href="/patient-dashboard/html/notification.html">Notifications</a>
+          <a href="/patient-dashboard/html/settings.html">Settings</a>
+          
+        </nav>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <main class="main">
+
+        <!-- Top text -->
+        <div class="toprow">
+          <div>
+            <div class="welcome">Appointments</div>
+            <div class="sub">Manage your visits & consultations</div>
+          </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="vitals-row">
+          <div class="v-card card">
+            <div class="title">Upcoming</div>
+            <div class="value" id="upcomingCount">0</div>
+            <div class="note">Next on Apr 12</div>
+          </div>
+
+          <div class="v-card card">
+            <div class="title">Completed</div>
+            <div class="value" id="completedCount">0</div>
+            <div class="note">Last visit: Mar 28</div>
+          </div>
+
+          <div class="v-card card">
+            <div class="title">Cancelled</div>
+            <div class="value" id="cancelledCount">0</div>
+            <div class="note">Rescheduled last month</div>
+          </div>
+        </div>
+
+        <!-- MID GRID (50 / 50) -->
+        <div class="mid">
+
+          <!-- LEFT COLUMN -->
+          <div class="left-col">
+
+            <!-- Upcoming Appointments -->
+            <section class="panel card" id="upcomingPanel">
+              <div class="panel-title">Upcoming Appointments</div>
+
+              <div class="history" id="upcomingList">
+                <!-- dynamic items inserted by JS -->
+              </div>
+            </section>
+
+            <!-- Past Visits -->
+            <section class="panel card" style="margin-top:16px;">
+              <div class="panel-title">Past Visits</div>
+
+              <div class="history" id="pastList">
+                <!-- dynamic items inserted by JS -->
+              </div>
+            </section>
+
+            <!-- CHOOSE SPECIALITY (UNDER PAST VISITS) -->
+            <section class="panel card" style="margin-top:16px;">
+              <div class="panel-title">Choose Speciality</div>
+
+              <div class="history" id="specialityList">
+                <div class="item"><div>General Physicians</div><div>12 Doctors</div></div>
+                <div class="item"><div>Dermatologists</div><div>9 Doctors</div></div>
+                <div class="item"><div>Psychologists</div><div>6 Doctors</div></div>
+              </div>
+            </section>
+
+          </div>
+
+
+          <!-- RIGHT COLUMN -->
+          <div class="right-col">
+
+            <!-- Quick Book -->
+            <section class="panel card" id="quickBook">
+              <div class="panel-title">Quick Book</div>
+
+              <form id="bookForm" novalidate>
+                <label class="small muted">Visit Type</label>
+                <select id="visitType" class="fullInput">
+                  <option value="in_person">In-person</option>
+                  <option value="tele">Teleconsult</option>
+                </select>
+
+                <label class="small muted" style="margin-top:10px">Doctor</label>
+                <select id="doctor" class="fullInput">
+                  <option value="tello">Dr. Tello — Psychologist</option>
+                  <option value="reed">Dr. Reed — General Physician </option>
+                  <option value="patel">Dr. Bryant - Dentist</option>
+                </select>
+
+                <label class="small muted" style="margin-top:10px">Preferred Date</label>
+                <input id="date" type="date" class="fullInput" required>
+
+                <label class="small muted" style="margin-top:10px">Preferred Time</label>
+                <input id="time" type="time" class="fullInput" required>
+
+                <button type="submit" class="btn primary full" style="margin-top:16px;">Request Booking</button>
+                <button type="button" id="clearBtn" class="btn ghost full" style="margin-top:8px;">Clear</button>
+              </form>
+
+              <div class="small muted" style="margin-top:12px">Booking requests will be confirmed by clinic staff.</div>
+            </section>
+
+            <!-- RECOMMENDED DOCTORS (UNDER QUICK BOOK) -->
+            <section class="panel card" style="margin-top:16px;">
+              <div class="panel-title">Recommended Doctors</div>
+
+              <div class="history" id="recommendedList">
+                <div class="item"><div>Dr. Amelia Reed</div><div class="small muted">General Physician</div></div>
+                <div class="item"><div>Dr. Michael Lee</div><div class="small muted">Physiotherapist</div></div>
+                <div class="item"><div>Dr. Sandra Jones</div><div class="small muted">Dermatologist</div></div>
+              </div>
+            </section>
+
+          </div>
+
+        </div>
+
+      </main>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="dash-web-footer">© 2025 Clinify. All Rights Reserved.</footer>
+
+  <!-- Page-specific JS -->
+  <script src="/patient-dashboard/js/appointment.js"></script>
+
+</body>
+</html>

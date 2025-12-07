@@ -1,0 +1,113 @@
+/* settings.css — page-specific layout & controls for Settings */
+
+/* 2 equal columns, no empty right gap */
+body.settings-page .mid.settings-grid {
+  grid-template-columns: 1fr 1fr !important;
+  gap: 16px;
+}
+
+.left-col,
+.right-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* form grid */
+.settings-form-grid {
+  margin-top: 8px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 12px;
+}
+
+.settings-form-grid .fullInput {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.08);
+  font-size: 14px;
+}
+
+/* make some rows stretch full width */
+.settings-form-grid textarea.fullInput {
+  resize: vertical;
+}
+
+/* buttons inside */
+.settings-form-grid .btn {
+  padding-inline: 16px;
+}
+
+/* small danger button style */
+.btn.danger {
+  background: #e53935;
+  color: #fff;
+}
+
+/* danger zone panel */
+.danger-zone {
+  border: 1px solid rgba(229,57,53,0.25);
+}
+
+/* preference rows */
+.pref-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  gap: 10px;
+}
+
+.pref-title {
+  font-weight: 600;
+}
+
+/* switch (copied from profile style, local to this file) */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background: #d1d5db;
+  border-radius: 999px;
+  transition: 0.2s;
+}
+.slider:before {
+  content: "";
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  top: 3px;
+  background: white;
+  border-radius: 50%;
+  transition: 0.2s;
+}
+.switch input:checked + .slider {
+  background: var(--accent);
+}
+.switch input:checked + .slider:before {
+  transform: translateX(18px);
+}
+
+/* small screen behaviour */
+@media (max-width: 860px) {
+  body.settings-page .mid.settings-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .settings-form-grid {
+    grid-template-columns: 1fr;
+  }
+}

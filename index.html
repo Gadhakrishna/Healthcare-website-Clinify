@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinify Healthcare</title>
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <img src="assets/icons/logo.png" alt="logo" width="120px">
+
+        <nav class="navbar">
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="doctors.html">Doctor</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+
+                <div class="nav-buttons">
+                    <a href="register.html" class="btn-register">Register</a>
+                    <a href="login.html" class="btn-login">Login</a>
+                </div>
+            </ul>
+
+            
+
+        </nav>
+
+        <i class="fa-solid fa-bars"></i>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="home">
+        <div class="row">
+
+            <!-- IMAGE (RIGHT SIDE) -->
+            <div class="images">
+                <img src="assets/doctors/mainpic.png" alt="mainpic">
+            </div>
+
+            <!-- TEXT (LEFT SIDE) -->
+            <div class="content">
+                <h2 class="heading"><span>Your</span> Health,</h2>
+                <h1><span>Our Top</span> Priority</h1>
+                <p class="para">Connect With Verified Doctors Instantly.</p>
+                <p class="para">Quality Consultation From The Comfort Of Your Home</p>
+
+                <a href="login.html"><button class="button">Book Appointment</button></a>
+
+                <div class="stats-container">
+                     <div class="stat">
+                        <h2>250+</h2>
+                        <p>Expert Doctors</p>
+                    </div>
+                    <div class="stat">
+                        <h2>50k+</h2>
+                        <p>Patients Served</p>
+                    </div>
+                    <div class="stat">
+                        <h2>98%</h2>
+                        <p>Success Rate</p>
+                    </div>
+                </div>
+            </div>   
+        </div>
+    </section>
+
+    <!-- Card section -->
+    <section class="portal-section">
+
+        <!-- Centered Heading + Subtitle -->
+        <div class="portal-header">
+            <h1>Our Key Healthcare Services</h1>
+            <p>
+                Access appointments, consultations, records and essential patient tools — 
+                all in one place.
+            </p>
+        </div>
+
+        <!-- Cards Grid -->
+        <div class="portal-cards">
+
+            <div class="portal-card">
+                <div class="icon blue">
+                    <i class="fa-regular fa-calendar"></i>
+                </div>
+                <h3>Book Appointment</h3>
+                <p>Schedule an in-person visit with a specialist at a time that suits you.</p>
+            </div>
+
+            <div class="portal-card">
+                <div class="icon green">
+                    <i class="fa-solid fa-video"></i>
+                </div>
+                <h3>Telemedicine / Video</h3>
+                <p>Start a secure HD video consultation with a verified doctor instantly.</p>
+            </div>
+
+            <div class="portal-card">
+                <div class="icon purple">
+                    <i class="fa-regular fa-file-lines"></i>
+                </div>
+                <h3>Medical Records</h3>
+                <p>Access your encrypted health records, prescriptions and visit notes.</p>
+            </div>
+
+            <div class="portal-card">
+                <div class="icon pink">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <h3>AI Symptom Checker</h3>
+                <p>Describe symptoms and get instant triage, recommended actions and urgency level.</p>
+            </div>
+
+           
+
+        </div>
+    </section>
+
+    <!-- speaciality section -->
+
+    <section class="speciality-section">
+        <h2>Find by Speciality</h2>
+        <p>Discover highly skilled doctors committed to your health.</p>
+
+        <div class="speciality-container">
+
+            <div class="speciality-card">
+                <img src="assets/icons/doctor.png" alt="">
+                <a href="#"><span>General Physicians</span></a>
+            </div>
+
+            <div class="speciality-card">
+                <img src="assets/icons/dentist.png" alt="">
+                <a href="#"><span>Dentists</span></a>
+            </div>
+
+            <div class="speciality-card">
+                <img src="assets/icons/dermatologist.png" alt="">
+                <a href="#"><span>Dermatologists</span></a>
+            </div>
+
+            <div class="speciality-card">
+                <img src="assets/icons/psychologist.png" alt="">
+                <a href="#"><span>Psychologists</span></a>
+            </div>
+
+            <div class="speciality-card">
+                <img src="assets/icons/physiotherapist.png" alt="">
+                <a href="#"><span>Physiotherapist</span></a>
+            </div>
+
+            <div class="speciality-card">
+                <img src="assets/icons/lab.png" alt="">
+                <a href="#"><span>Diagnostic Center</span></a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Doctor section -->
+    <section class="doctors-section">
+        <h2>Book Our Best Doctor</h2>
+        <p>Connect with certified medical experts and book appointments instantly.</p>
+
+        <div class="doctors-container">
+
+            <!-- Doctor Card 1 -->
+            <div class="doctor-card">
+                <div class="doctor-img">
+                    <span class="rating">5.0 ★</span>
+                    <img src="assets/doctors/doc1.png" alt="Doctor">
+                    <span class="fav">♡</span>
+                </div>
+                <div class="doctor-info">
+                    <div class="top-info">
+                        <span class="speciality">Psychologist</span>
+                        <span class="availability">Available</span>
+                    </div>
+                    <h3>Dr. Michael Brown</h3>
+                    <p class="location">📍 Queens, NY · ⏱ 30 Min</p>
+                    <div class="fees">
+                        <span class="price">$650</span>
+                         <a href="login.html"><button class="book-btn">Book Now</button></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Doctor Card 2 -->
+            <div class="doctor-card">
+                <div class="doctor-img">
+                    <span class="rating">4.6 ★</span>
+                    <img src="assets/doctors/doc3.png" alt="Doctor">
+                    <span class="fav">♡</span>
+                </div>
+                <div class="doctor-info">
+                    <div class="top-info">
+                        <span class="speciality">General Physician</span>
+                        <span class="availability">Available</span>
+                    </div>
+                    <h3>Dr. Nicholas Tello</h3>
+                    <p class="location">📍 Ogden, IA · ⏱ 60 Min</p>
+
+                    <div class="fees">
+                        <span class="price">$400</span>
+                        <a href="login.html"><button class="book-btn">Book Now</button></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Doctor Card 3 -->
+            <div class="doctor-card">
+                <div class="doctor-img">
+                    <span class="rating">4.8 ★</span>
+                    <img src="assets/doctors/doc4.png" alt="Doctor">
+                    <span class="fav">♡</span>
+                </div>
+                <div class="doctor-info">
+                    <div class="top-info">
+                        <span class="speciality">Dentist</span>
+                        <span class="availability">Available</span>
+                    </div>
+                    <h3>Dr. Harold Bryant</h3>
+                    <p class="location">📍 Winona, MS · ⏱ 30 Min</p>
+
+                    <div class="fees">
+                        <span class="price">$500</span>
+                       <a href="login.html"><button class="book-btn">Book Now</button></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Doctor Card 4 -->
+            <div class="doctor-card">
+                <div class="doctor-img">
+                    <span class="rating">4.8 ★</span>
+                    <img src="assets/doctors/doc5.png" alt="Doctor">
+                    <span class="fav">♡</span>
+                </div>
+                <div class="doctor-info">
+                    <div class="top-info">
+                        <span class="speciality">Dermatologist</span>
+                        <span class="availability">Available</span>
+                    </div>
+                    <h3>Dr. Sandra Jones</h3>
+                    <p class="location">📍 Beckley, WV · ⏱ 30 Min</p>
+
+                    <div class="fees">
+                        <span class="price">$550</span>
+                        <a href="login.html"><button class="book-btn">Book Now</button></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="more-doctors-btn">
+            <a href="doctors.html">View More Doctors</a>
+        </div>
+    </section>
+
+    <!-- steps section -->
+    <section class="steps-section">
+        <h2>Steps For New Patients</h2>
+        <p>Connect with your chosen healthcare professional at the scheduled time. After your appointment, follow any post-visit instructions provided by the doctor.</p>
+
+        <div class="steps-container">
+
+            <div class="step-card">
+                <div class="step-icon">
+                    <span class="step-number">1</span>
+                    
+                </div>
+                <h3>Choose Your Doctor</h3>
+                <p>Browse and select the doctor who best fits your healthcare needs.</p>
+            </div>
+
+            <div class="step-card">
+                <div class="step-icon">
+                    <span class="step-number">2</span>
+                   
+                </div>
+                <h3>Set Appointment</h3>
+                <p>After choosing your preferred doctor, set your appointment.</p>
+            </div>
+
+            <div class="step-card">
+                <div class="step-icon">
+                    <span class="step-number">3</span>
+                    
+                </div>
+                <h3>Consult With Doctor</h3>
+                <p>Discuss your health concerns with the doctor you chose.</p>
+            </div>
+
+            <div class="step-card">
+                <div class="step-icon">
+                    <span class="step-number">4</span>
+                   
+                </div>
+                <h3>Get Recommendation</h3>
+                <p>After consulting, you receive personalized advice & solutions.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- patient review section -->
+    <section class="testimonial-section">
+        <h2>What Our Patients Say</h2>
+        <p class="sub-text">
+            Real experiences from our patients about the care they received from our specialists.
+        </p>
+
+        <div class="testimonial-container">
+
+            <!-- General Physician Review -->
+            <div class="testimonial-card">
+                <div class="patient-info">
+                    <img src="assets/patients/andrew.jpg" alt="">
+                    <div>
+                        <h3>Andrew</h3>
+                        <span class="location">Newyork, USA</span>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                </div>
+
+                <h4 class="review-title">“ Excellent Care ”</h4>
+                <p class="review-text">
+                    The general physician listened carefully and explained everything clearly. 
+                    I finally feel confident about my treatment plan.
+                </p>
+            </div>
+
+            <!-- Dentist Review -->
+            <div class="testimonial-card">
+                <div class="patient-info">
+                    <img src="assets/patients/james.jpg" alt="">
+                    <div>
+                        <h3>James Anderson</h3>
+                        <span class="location">Newyork, USA</span>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                </div>
+
+                <h4 class="review-title">“ Very Gentle Treatment ”</h4>
+                <p class="review-text">
+                    The dentist was very gentle and made the procedure completely painless. 
+                    My dental anxiety is gone now.
+                </p>
+            </div>
+
+            <!-- Dermatologist Review -->
+            <div class="testimonial-card">
+                <div class="patient-info">
+                    <img src="assets/patients/louis.jpg" alt="">
+                    <div>
+                        <h3>Christina Louis</h3>
+                        <span class="location">Newyork, USA</span>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                </div>
+
+                <h4 class="review-title">“ Visible Results Fast ”</h4>
+                <p class="review-text">
+                    The dermatologist quickly identified my skin concern and gave treatment 
+                    that worked within a week. Truly impressive care.
+                </p>
+            </div>
+
+            <!-- Physiotherapist Review -->
+            <div class="testimonial-card">
+                <div class="patient-info">
+                    <img src="assets/patients/sofia.jpg" alt="">
+                    <div>
+                        <h3>Sofia Nick</h3>
+                        <span class="location">Newyork, USA</span>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                </div>
+
+                <h4 class="review-title">“ Pain-Free At Last ”</h4>
+                <p class="review-text">
+                    The physiotherapist designed exercises specifically for my pain. 
+                    I can walk comfortably now after months of discomfort.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- why choose us section -->
+    <section class="choose-section">
+
+        <div class="choose-header">
+            <h2>Why Choose Us</h2>
+            <p>We provide trusted, secure and high-quality healthcare services for every patient.</p>
+        </div>
+
+        <div class="choose-cards">
+
+            <div class="choose-card">
+                <div class="choose-icon blue">
+                    <i class="fa-solid fa-user-check"></i>
+                </div>
+                <h3>Verified Doctors</h3>
+                <p>All doctors on Clinify are licensed, experienced and fully background-checked.</p>
+            </div>
+
+            <div class="choose-card">
+                <div class="choose-icon green">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <h3>Secure Medical Records</h3>
+                <p>Your personal health data is encrypted and protected with bank-level security.</p>
+            </div>
+
+            <div class="choose-card">
+                <div class="choose-icon purple">
+                    <i class="fa-solid fa-calendar-check"></i>
+                </div>
+                <h3>Easy Appointment Booking</h3>
+                <p>Book your preferred specialist instantly in just a few simple clicks.</p>
+            </div>
+
+            <div class="choose-card">
+                <div class="choose-icon pink">
+                    <i class="fa-solid fa-headset"></i>
+                </div>
+                <h3>24/7 Patient Support</h3>
+                <p>Our support team is available anytime to guide you throughout your care.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- cta section -->
+    <section class="cta-section-two">
+
+        <div class="cta-right">
+            <h2>Ready to Book Your Appointment?</h2>
+            <p>Get expert medical care today — online or in person.</p>
+
+            <a href="register.html" class="cta-btn-two">Create Account</a>
+        </div>
+
+        <div class="cta-left">
+            <img src="assets/doctors/appointment_img.png" alt="Doctor" />
+        </div>
+
+    </section>
+
+    <!-- footer -->
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <!-- Logo + About -->
+            <div class="footer-col">
+                <img src="assets/icons/logo.png" class="footer-logo" alt="Clinify Logo">
+                <p>Your Trusted Platform For Easy Doctor Appointments And Quality Healthcare Services.</p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="doctors.html">Doctors</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Services -->
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="login.html">Book Appointment</a></li>
+                    <li><a href="login.html">Telemedicine</a></li>
+                    <li><a href="login.html">Medical Records</a></li>
+                    <li><a href="login.html">Symptom Checker</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+
+                <p>
+                    <i class="fa-solid fa-envelope"></i>
+                    support@clinify.com
+                </p>
+
+                <p>
+                    <i class="fa-solid fa-phone"></i>
+                    +1 (315) 369-5943
+                </p>
+
+                <p>
+                    <i class="fa-solid fa-location-dot"></i>
+                    228 Madison Avenue, New York, NY 10016  
+                    <a href="https://maps.google.com/?q=228+Madison+Avenue+New+York+NY+10016" target="_blank">(Map)</a>
+                </p>
+
+                <div class="footer-social">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2025 Clinify. All Rights Reserved.
+        </div>
+
+    </footer>
+
+
+
+
+    <!-- JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>

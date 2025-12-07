@@ -1,0 +1,202 @@
+/* notification.css — page-specific layout & styles for Notifications */
+
+/* Remove third column (no profile on right) */
+body.notifications-page .frame {
+  grid-template-columns: 240px 1fr !important;
+}
+
+/* Two-column inside main content */
+body.notifications-page .mid.notifications-grid {
+  grid-template-columns: 1.5fr 1fr !important;  /* list wider than summary */
+  gap: 16px;
+}
+
+.left-col,
+.right-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Tabs */
+.notif-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.notif-tabs .tab {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  background: rgba(11,118,255,0.06);
+  color: var(--accent-2);
+}
+
+.notif-tabs .tab.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* Main notification list */
+.notif-list {
+  margin-top: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Single notification row */
+.notif-row {
+  display: flex;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(11,118,255,0.06);
+  background: #ffffff;
+  align-items: flex-start;
+  cursor: pointer;
+  position: relative;
+}
+
+.notif-row:hover {
+  box-shadow: var(--shadow);
+}
+
+/* colored strip */
+.notif-strip {
+  width: 4px;
+  border-radius: 999px;
+  margin-right: 4px;
+}
+
+/* icon bubble */
+.notif-icon-wrap {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.notif-content {
+  flex: 1;
+}
+
+.notif-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.notif-title {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.notif-time {
+  font-size: 11px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.notif-message {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* Unread indicator */
+.notif-row.unread {
+  background: #f3f7ff;
+}
+
+.notif-row.unread .notif-title {
+  font-weight: 700;
+}
+
+/* little unread dot on the right */
+.unread-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2563eb;
+  margin-left: 6px;
+}
+
+/* Type-based colors */
+.type-appointment .notif-strip,
+.legend-dot.type-appointment {
+  background: #2563eb;
+}
+
+.type-appointment .notif-icon-wrap {
+  background: rgba(37,99,235,0.08);
+  color: #1d4ed8;
+}
+
+.type-report .notif-strip,
+.legend-dot.type-report {
+  background: #059669;
+}
+
+.type-report .notif-icon-wrap {
+  background: rgba(5,150,105,0.08);
+  color: #047857;
+}
+
+.type-prescription .notif-strip,
+.legend-dot.type-prescription {
+  background: #7c3aed;
+}
+
+.type-prescription .notif-icon-wrap {
+  background: rgba(124,58,237,0.08);
+  color: #5b21b6;
+}
+
+.type-system .notif-strip,
+.legend-dot.type-system {
+  background: #f97316;
+}
+
+.type-system .notif-icon-wrap {
+  background: rgba(249,115,22,0.08);
+  color: #c2410c;
+}
+
+/* Legend */
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.legend-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+}
+
+/* Summary text */
+#notifSummary {
+  line-height: 1.4;
+}
+
+/* Responsive adjustments */
+@media (max-width: 860px) {
+  body.notifications-page .frame {
+    grid-template-columns: 1fr !important;
+  }
+
+  body.notifications-page .mid.notifications-grid {
+    grid-template-columns: 1fr !important;
+  }
+}

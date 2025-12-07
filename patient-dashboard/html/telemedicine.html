@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Clinify — Telemedicine</title>
+
+  <!-- Inter Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- GLOBAL STYLES (navbar + layout) -->
+  <link rel="stylesheet" href="/patient-dashboard/css/appointment.css">
+
+  <!-- PAGE-SPECIFIC STYLES -->
+  <link rel="stylesheet" href="/patient-dashboard/css/telemedicine.css">
+</head>
+
+<body>
+
+  <!-- TOP NAVBAR (GLOBAL) -->
+  <header class="topbar tint">
+    <div class="nav-inner">
+
+      <div class="top-left">
+        <!-- Hamburger -->
+        <button id="hamburgerBtn" class="hamburger" aria-label="Open menu" aria-expanded="false">
+          <div class="ham-line top"></div>
+          <div class="ham-line middle"></div>
+          <div class="ham-line bottom"></div>
+        </button>
+
+        <img src="/assets/icons/logo.png" alt="logo" width="100px">
+
+        <div class="brand-title">
+          <div class="site-title">Clinify</div>
+          <div class="site-subtitle">Telemedicine</div>
+        </div>
+      </div>
+
+      <div class="nav-spacer"></div>
+
+      <div class="nav-actions">
+
+        <!-- Notification Bell -->
+        <div class="nav-bell" id="bellBtn" aria-haspopup="true" aria-expanded="false" role="button" tabindex="0">
+          <i class="bell-icon"></i>
+          <span class="notif-badge" id="notifCount">2</span>
+        </div>
+
+        <!-- Notification Dropdown -->
+        <div class="notif-box" id="notifBox" aria-hidden="true">
+          <div class="notif-header">Notifications</div>
+          <div class="notif-item"><p>Teleconsult with Dr. Tello starts soon.</p><span>10 mins ago</span></div>
+          <div class="notif-item"><p>New chat message from Dr. Reed.</p><span>1 hr ago</span></div>
+        </div>
+
+        <!-- Profile -->
+        <div class="nav-profile" id="profileBtn">
+          <img src="/assets/patients/Natalie hughes.jpg" alt="profile">
+        </div>
+
+        <!-- Profile Dropdown -->
+        <div class="profile-dropdown" id="profileDropdown" aria-hidden="true">
+          <a href="/patient-dashboard/html/profile.html" class="p-item">My Profile</a>
+          <a href="/patient-dashboard/html/settings.html" class="p-item">Settings</a>
+          <button class="p-item danger" onclick="window.location.href='/login.html'">Logout</button>
+        </div>
+
+      </div>
+
+    </div>
+  </header>
+
+  <!-- OVERLAY FOR MOBILE -->
+  <div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+  <!-- PAGE CONTENT -->
+  <div class="page">
+    <div class="frame">
+
+      <!-- SIDEBAR (GLOBAL STYLE) -->
+      <aside id="sidebar" class="sidebar">
+        <div class="brand">
+          <img src="/assets/icons/logo.png" width="100px">
+        </div>
+
+        <nav class="side-nav">
+          <a href="/patient-dashboard/html/index.html">Dashboard</a>
+          <a href="/patient-dashboard/html/appointment.html">Appointment Management</a>
+          <a href="/patient-dashboard/html/medical.html">Medical Records</a>
+          <a class="active" href="/patient-dashboard/html/telemedicine.html">Telemedicine</a>
+          <a href="/patient-dashboard/html/ai.html">AI Symptom Checker</a>
+          <a href="/patient-dashboard/html/prescription.html">Prescriptions</a>
+          <a href="/patient-dashboard/html/insurance.html">Insurance</a>
+          <a href="/patient-dashboard/html/profile.html">My Profile</a>
+          <a href="/patient-dashboard/html/notification.html">Notifications</a>
+          <a href="/patient-dashboard/html/settings.html">Settings</a>
+        </nav>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <main class="main">
+
+        <!-- Page Header -->
+        <div class="toprow">
+          <div>
+            <div class="welcome">Telemedicine</div>
+            <div class="sub">Join calls or message your doctor</div>
+          </div>
+        </div>
+
+        <!-- MID 2-COLUMN LAYOUT (like Appointment page) -->
+        <div class="mid">
+
+          <!-- LEFT COLUMN -->
+          <div class="left-col">
+
+            <!-- UPCOMING TELECONSULTS -->
+            <section class="panel card">
+              <div class="panel-title">Upcoming Teleconsults</div>
+
+              <div class="history">
+                <div class="item">
+                  <div>Dr. Tello</div>
+                  <div class="small muted">Today • 4:00 PM</div>
+                </div>
+
+                <div class="item">
+                  <div>Dr. Reed</div>
+                  <div class="small muted">Tomorrow • 11:30 AM</div>
+                </div>
+              </div>
+            </section>
+
+            <!-- PAST SESSIONS -->
+            <section class="panel card" style="margin-top:16px;">
+              <div class="panel-title">Past Sessions</div>
+
+              <div class="history">
+                <div class="item">
+                  <div>General Teleconsult</div>
+                  <div class="small muted">Apr 20</div>
+                </div>
+                <div class="item">
+                  <div>Dermatology Follow-up</div>
+                  <div class="small muted">Apr 12</div>
+                </div>
+              </div>
+            </section>
+
+            <!-- CHAT HISTORY -->
+            <section class="panel card" style="margin-top:16px;">
+              <div class="panel-title">Chat History</div>
+
+              <div class="history">
+                <div class="item">
+                  <div>Dr. Lee</div>
+                  <div class="small muted">Last msg: 2 hrs ago</div>
+                </div>
+              </div>
+            </section>
+
+          </div>
+
+          <!-- RIGHT COLUMN -->
+          <div class="right-col">
+
+            <section class="panel card">
+              <div class="panel-title">Start Video Call</div>
+              <button class="btn primary full" id="joinVideoBtn">Join Now</button>
+            </section>
+
+            <section class="panel card" style="margin-top:16px;">
+              <div class="panel-title">Start Chat Consultation</div>
+              <button class="btn ghost full" id="chatBtn">Start Chat</button>
+            </section>
+
+            <section class="panel card" style="margin-top:16px;">
+              <div class="panel-title">Doctors Online</div>
+              <div class="history">
+                <div class="item"><div>Dr. Patel</div><div class="small muted">Online</div></div>
+                <div class="item"><div>Dr. Lee</div><div class="small muted">Online</div></div>
+              </div>
+            </section>
+
+          </div>
+
+        </div>
+
+      </main>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="dash-web-footer">© 2025 Clinify. All Rights Reserved.</footer>
+
+  <!-- GLOBAL SCRIPT (navbar + sidebar + notifications) -->
+  <script src="/patient-dashboard/js/script.js"></script>
+
+  <!-- PAGE-SPECIFIC SCRIPT -->
+  <script src="/patient-dashboard/js/telemedicine.js"></script>
+
+</body>
+</html>

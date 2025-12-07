@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Clinify — Medical Records</title>
+
+  <link rel="stylesheet" href="/patient-dashboard/css/medical.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- TOP NAVBAR -->
+  <header class="topbar tint">
+    <div class="nav-inner">
+
+      <div class="top-left">
+
+        <!-- Hamburger -->
+        <button id="hamburgerBtn" class="hamburger" aria-label="Open menu">
+          <div class="ham-line top"></div>
+          <div class="ham-line middle"></div>
+          <div class="ham-line bottom"></div>
+        </button>
+
+        <img src="/assets/icons/logo.png" width="100px" alt="logo">
+
+        <div class="brand-title">
+          <div class="site-title">Clinify</div>
+          <div class="site-subtitle">Medical Records</div>
+        </div>
+      </div>
+
+      <div class="nav-spacer"></div>
+
+      <!-- ACTIONS -->
+      <div class="nav-actions">
+
+        <!-- Notifications -->
+        <div class="nav-bell" id="bellBtn">
+          <i class="bell-icon"></i>
+          <span class="notif-badge">3</span>
+        </div>
+
+        <div class="notif-box" id="notifBox">
+          <div class="notif-header">Notifications</div>
+          <div class="notif-item"><p>New Lab Report added</p><span>5 mins ago</span></div>
+          <div class="notif-item"><p>Prescription updated</p><span>Yesterday</span></div>
+        </div>
+
+        <!-- Profile -->
+        <div class="nav-profile" id="profileBtn">
+          <img src="/assets/patients/Natalie hughes.jpg" alt="profile">
+        </div>
+
+        <!-- Profile Dropdown -->
+        <div class="profile-dropdown" id="profileDropdown">
+          <a href="/patient-dashboard/html/profile.html" class="p-item">My Profile</a>
+          <a href="/patient-dashboard/html/settings.html" class="p-item">Settings</a>
+          <button class="p-item danger" onclick="window.location.href='/login.html'">Logout</button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Overlay -->
+  <div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+  <!-- Page -->
+  <div class="page">
+    <div class="frame">
+
+      <!-- SIDEBAR -->
+      <aside id="sidebar" class="sidebar">
+
+        <div class="brand">
+          <img src="/assets/icons/logo.png" width="100px">
+        </div>
+
+        <nav class="side-nav">
+          <a href="/patient-dashboard/html/index.html">Dashboard</a>
+          <a href="/patient-dashboard/html/appointment.html">Appointment Management</a>
+          <a class="active" href="/patient-dashboard/html/medical.html">Medical Records</a>
+          <a href="/patient-dashboard/html/telemedicine.html">Telemedicine</a>
+          <a href="/patient-dashboard/html/ai.html">AI Symptom Checker</a>
+          <a href="/patient-dashboard/html/prescription.html">Prescriptions</a>
+          <a href="/patient-dashboard/html/insurance.html">Insurance</a>
+          <a href="/patient-dashboard/html/profile.html">My Profile</a>
+          <a href="/patient-dashboard/html/notification.html">Notifications</a>
+          <a href="/patient-dashboard/html/settings.html">Settings</a>
+        </nav>
+
+      </aside>
+
+      <!-- MAIN -->
+      <main class="main">
+
+        <div class="toprow">
+          <div>
+            <div class="welcome">Medical Records</div>
+            <div class="sub">Access, upload & manage your reports</div>
+          </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="vitals-row">
+          <div class="v-card card">
+            <div class="title">Total Reports</div>
+            <div class="value">12</div>
+            <div class="note">Updated 2 days ago</div>
+          </div>
+
+          <div class="v-card card">
+            <div class="title">Lab Results</div>
+            <div class="value">7</div>
+            <div class="note">Includes blood tests</div>
+          </div>
+
+          <div class="v-card card">
+            <div class="title">Imaging Scans</div>
+            <div class="value">5</div>
+            <div class="note">X-ray, CT, MRI</div>
+          </div>
+        </div>
+
+        <!-- MID (M1 layout) -->
+        <div class="mid">
+
+          <!-- LEFT -->
+          <div class="left-col">
+
+            <!-- Lab Reports -->
+            <section class="panel card">
+              <div class="panel-title">Lab Reports</div>
+              <div class="history">
+                <div class="item"><div>Blood Test — CBC</div><div>1.1 MB</div></div>
+                <div class="item"><div>Hemoglobin Report</div><div>850 KB</div></div>
+                <div class="item"><div>Lipid Profile</div><div>900 KB</div></div>
+              </div>
+            </section>
+
+            <!-- Prescriptions -->
+            <section class="panel card" style="margin-top:16px;">
+              <div class="panel-title">Prescriptions</div>
+              <div class="history">
+                <div class="item"><div>General Prescription</div><div>200 KB</div></div>
+                <div class="item"><div>Amoxicillin</div><div>120 KB</div></div>
+              </div>
+            </section>
+
+            <!-- Scans -->
+            <section class="panel card" style="margin-top:16px;">
+              <div class="panel-title">Scans & Imaging</div>
+              <div class="history">
+                <div class="item"><div>Chest X-Ray</div><div>2.0 MB</div></div>
+                <div class="item"><div>MRI Brain</div><div>5.2 MB</div></div>
+              </div>
+            </section>
+
+          </div>
+
+          <!-- RIGHT -->
+          <div class="right-col">
+
+            <!-- UPLOAD REPORT -->
+            <section class="panel card">
+              <div class="panel-title">Upload New Report</div>
+
+              <form id="uploadForm">
+                <label class="small muted">Select File</label>
+                <input type="file" id="reportFile" class="fullInput" required>
+
+                <label class="small muted" style="margin-top:10px">Category</label>
+                <select id="reportCategory" class="fullInput">
+                  <option>Lab</option>
+                  <option>Prescription</option>
+                  <option>Scan</option>
+                </select>
+
+                <button type="submit" class="btn primary full" style="margin-top:14px;">Upload</button>
+              </form>
+            </section>
+
+            <!-- RECENT RECORDS -->
+            <section class="panel card" style="margin-top:16px;">
+              <div class="panel-title">Recent Records</div>
+              <div class="history">
+                <div class="item"><div>Blood Status.pdf</div><div>1 MB</div></div>
+                <div class="item"><div>CT Scan — Chest</div><div>4 MB</div></div>
+              </div>
+            </section>
+
+          </div>
+
+        </div>
+
+      </main>
+
+    </div>
+  </div>
+
+  <footer class="dash-web-footer">© 2025 Clinify. All Rights Reserved.</footer>
+
+  <script src="/patient-dashboard/js/medical.js"></script>
+</body>
+</html>

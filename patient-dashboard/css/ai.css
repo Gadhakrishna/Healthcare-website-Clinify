@@ -1,0 +1,57 @@
+/* ai.css — page-specific styles for AI Symptom Checker */
+
+/* ensure mid fills (override global) */
+body.ai-page .mid {
+  grid-template-columns: 1fr 1fr !important;
+  gap: 18px;
+}
+
+/* left & right columns */
+.left-col, .right-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* form inputs */
+.fullInput {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.08);
+  margin-top: 6px;
+}
+
+/* panels */
+.panel {
+  background: white;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+.panel-title {
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+/* results styling */
+#resultsContent {
+  margin-top: 6px;
+}
+.result-block {
+  padding: 12px;
+  border-radius: 10px;
+  background: linear-gradient(180deg,#f7fbff,#ffffff);
+  border: 1px solid rgba(11,118,255,0.06);
+  margin-top: 8px;
+}
+.result-block h4 { margin: 0 0 6px 0; }
+.result-block ul { margin: 6px 0 0 16px; }
+
+/* recent checks */
+#recentChecks .item { cursor: default; }
+
+/* small screens */
+@media (max-width: 860px) {
+  body.ai-page .mid { grid-template-columns: 1fr !important; }
+}

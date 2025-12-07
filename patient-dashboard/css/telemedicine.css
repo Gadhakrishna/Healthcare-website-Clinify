@@ -1,0 +1,87 @@
+/* -----------------------------------
+   TELEMEDICINE — PAGE SPECIFIC CSS
+   (Navbar, sidebar, dropdowns come from style.css)
+-----------------------------------*/
+
+/* Layout spacing */
+.left-col,
+.right-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Panels */
+.panel {
+  background: white;
+  padding: 18px;
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+
+.panel-title {
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+/* Items inside lists */
+.history .item {
+  background: white;
+  padding: 12px;
+  border-radius: 10px;
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid rgba(11,118,255,0.08);
+}
+
+/* Buttons inside telemedicine panels */
+.btn.full {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.btn.primary {
+  background: var(--accent);
+  color: white;
+}
+
+.btn.primary:hover {
+  background: var(--accent);
+  border-radius: 30px;
+  border: 1px solid #0a1169;
+  letter-spacing: .1rem;
+}
+
+.btn.ghost {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.btn.ghost:hover {
+  color: var(--accent);
+  border-radius: 30px;
+  border-color: #0a1169;
+  letter-spacing: .1rem;
+}
+
+/* Fix columns for desktop layout */
+/* TELEMEDICINE FIX — remove right-side extra space */
+.mid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;   /* equal two columns */
+  gap: 16px;
+  align-items: start;
+}
+
+
+/* -----------------------------------
+   RESPONSIVE
+-----------------------------------*/
+
+@media (max-width: 860px) {
+  .mid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Clinify — My Profile</title>
+
+  <!-- GLOBAL CSS -->
+  <link rel="stylesheet" href="/patient-dashboard/css/appointment.css">
+  <!-- PAGE CSS -->
+  <link rel="stylesheet" href="/patient-dashboard/css/profile.css">
+</head>
+<body class="profile-page">
+
+  <!-- TOP NAVBAR -->
+  <header class="topbar tint" role="banner">
+    <div class="nav-inner">
+      <div class="top-left">
+
+        <!-- Hamburger (mobile only, hidden on desktop by your global CSS) -->
+        <button id="hamburgerBtn" class="hamburger" aria-label="Open menu" aria-expanded="false">
+          <div class="ham-line top"></div>
+          <div class="ham-line middle"></div>
+          <div class="ham-line bottom"></div>
+        </button>
+
+        <!-- Logo + Title -->
+        <img src="/assets/icons/logo.png" alt="logo" width="100px">
+        <div class="brand-title">
+          <div class="site-title">Clinify</div>
+          <div class="site-subtitle">My Profile</div>
+        </div>
+      </div>
+
+      <div class="nav-spacer"></div>
+
+      <div class="nav-actions">
+
+        <!-- Notification Bell -->
+        <div class="nav-bell" id="bellBtn" role="button" tabindex="0">
+          <i class="bell-icon"></i>
+          <span class="notif-badge" id="notifCount">2</span>
+        </div>
+
+        <!-- Notification Dropdown -->
+        <div class="notif-box" id="notifBox" aria-hidden="true">
+          <div class="notif-header">Notifications</div>
+          <div class="notif-item">
+            <p>Profile updated successfully.</p>
+            <span>Just now</span>
+          </div>
+          <div class="notif-item">
+            <p>New message from Dr. Reed.</p>
+            <span>1 hr ago</span>
+          </div>
+        </div>
+
+        <!-- Profile Icon -->
+        <div class="nav-profile" id="profileBtn" title="Account">
+          <img src="/assets/patients/Natalie hughes.jpg" alt="profile">
+        </div>
+
+        <!-- Profile Dropdown -->
+        <div class="profile-dropdown" id="profileDropdown" aria-hidden="true">
+          <a href="/patient-dashboard/html/profile.html" class="p-item">My Profile</a>
+          <a href="/patient-dashboard/html/settings.html" class="p-item">Settings</a>
+          <button class="p-item danger" onclick="window.location.href='/login.html'">Logout</button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- sidebar overlay (mobile) -->
+  <div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+  <!-- PAGE -->
+  <div class="page">
+    <div class="frame">
+
+      <!-- SIDEBAR -->
+      <aside id="sidebar" class="sidebar" aria-label="Main navigation">
+        <div class="brand">
+          <img src="/assets/icons/logo.png" width="100px" alt="logo">
+         
+        </div>
+
+        <nav class="side-nav">
+          <a href="/patient-dashboard/html/index.html">Dashboard</a>
+          <a href="/patient-dashboard/html/appointment.html">Appointment Management</a>
+          <a href="/patient-dashboard/html/medical.html">Medical Records</a>
+          <a href="/patient-dashboard/html/telemedicine.html">Telemedicine</a>
+          <a href="/patient-dashboard/html/ai.html">AI Symptom Checker</a>
+          <a href="/patient-dashboard/html/prescription.html">Prescriptions</a>
+          <a href="/patient-dashboard/html/insurance.html">Insurance</a>
+          <a href="/patient-dashboard/html/profile.html" class="active">My Profile</a>
+          <a href="/patient-dashboard/html/notification.html">Notifications</a>
+          <a href="/patient-dashboard/html/settings.html">Settings</a>
+          
+        </nav>
+      </aside>
+
+      <!-- MAIN -->
+      <main class="main">
+
+        <div class="toprow">
+          <div>
+            <div class="welcome">My Profile</div>
+            <div class="sub">View and update your personal & health details</div>
+          </div>
+        </div>
+
+        <!-- MID GRID: 2 columns -->
+        <div class="mid profile-grid">
+
+          <!-- LEFT COLUMN -->
+          <div class="left-col">
+
+            <!-- BASIC DETAILS -->
+            <section class="panel card profile-main-card">
+              <div class="profile-header">
+                <div class="profile-avatar-wrap">
+                  <div class="avatar">
+                    <img id="profileAvatar" src="/assets/patients/Natalie hughes.jpg" alt="Natalie">
+                  </div>
+                  <button id="changeAvatarBtn" class="btn ghost small-btn">Change</button>
+                  <input id="avatarInput" type="file" accept="image/*" style="display:none">
+                </div>
+
+                <div class="profile-main-info">
+                  <input id="nameInput" class="profile-name-input" value="Natalie Hughes" disabled>
+                  <div class="profile-tags">
+                    <span class="tag">Patient</span>
+                    <span class="tag" id="bloodTag">Blood: O+</span>
+                    <span class="tag" id="ageTag">24 yrs</span>
+                  </div>
+                </div>
+
+                <button id="editProfileBtn" class="btn primary small-btn">Edit</button>
+              </div>
+
+              <div class="profile-fields-grid">
+                <div>
+                  <label class="small muted">Gender</label>
+                  <select id="genderInput" disabled class="fullInput">
+                    <option value="Female" selected>Female</option>
+                    <option value="Male">Male</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label class="small muted">Date of Birth</label>
+                  <input id="dobInput" type="date" class="fullInput" value="2001-01-01" disabled>
+                </div>
+
+                <div>
+                  <label class="small muted">Height (cm)</label>
+                  <input id="heightInput" type="number" class="fullInput" value="173" disabled>
+                </div>
+
+                <div>
+                  <label class="small muted">Weight (kg)</label>
+                  <input id="weightInput" type="number" class="fullInput" value="50" disabled>
+                </div>
+
+                <div>
+                  <label class="small muted">Blood Group</label>
+                  <input id="bloodInput" type="text" class="fullInput" value="O+" disabled>
+                </div>
+
+                <div>
+                  <label class="small muted">Allergies</label>
+                  <input id="allergyInput" type="text" class="fullInput" value="None" disabled>
+                </div>
+              </div>
+            </section>
+
+            <!-- CONTACT & ADDRESS -->
+            <section class="panel card" style="margin-top:16px;">
+              <div class="panel-title">Contact & Address</div>
+              <div class="profile-fields-grid">
+                <div>
+                  <label class="small muted">Email</label>
+                  <input id="emailInput" type="email" class="fullInput" value="natalie.hughes.ny@gmail.com" disabled>
+                </div>
+                <div>
+                  <label class="small muted">Phone</label>
+                  <input id="phoneInput" type="tel" class="fullInput" value="+1 (646) 953-7814" disabled>
+                </div>
+                <div style="grid-column:1 / -1;">
+                  <label class="small muted">Address</label>
+                  <textarea id="addressInput" class="fullInput" rows="3" disabled>198 East 24th Street, Apt 3F, New York, NY 10010</textarea>
+                </div>
+              </div>
+            </section>
+
+            <!-- HEALTH PREFERENCES -->
+            <section class="panel card" style="margin-top:16px;">
+              <div class="panel-title">Health & Notification Preferences</div>
+              <div class="pref-row">
+                <div>
+                  <div class="pref-title">Appointment reminders</div>
+                  <div class="small muted">Get SMS & email reminders</div>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" id="prefReminders" checked>
+                  <span class="slider"></span>
+                </label>
+              </div>
+
+              <div class="pref-row">
+                <div>
+                  <div class="pref-title">Share records with primary doctor</div>
+                  <div class="small muted">Allows your doctor to see your latest reports</div>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" id="prefShare" checked>
+                  <span class="slider"></span>
+                </label>
+              </div>
+
+              <div class="pref-row">
+                <div>
+                  <div class="pref-title">Health tips</div>
+                  <div class="small muted">Occasional wellness insights</div>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" id="prefTips">
+                  <span class="slider"></span>
+                </label>
+              </div>
+            </section>
+
+          </div>
+
+          <!-- RIGHT COLUMN -->
+          <div class="right-col">
+
+            <!-- EMERGENCY CONTACT -->
+            <section class="panel card">
+              <div class="panel-title">Emergency Contact</div>
+              <div class="profile-fields-grid">
+                <div>
+                  <label class="small muted">Name</label>
+                  <input id="emNameInput" type="text" class="fullInput" value="Sara Hughes">
+                </div>
+                <div>
+                  <label class="small muted">Relationship</label>
+                  <input id="emRelationInput" type="text" class="fullInput" value="Sister">
+                </div>
+                <div>
+                  <label class="small muted">Phone</label>
+                  <input id="emPhoneInput" type="tel" class="fullInput" value="">
+                </div>
+              </div>
+              <button id="saveEmergencyBtn" class="btn primary full" style="margin-top:10px;">Save Emergency Contact</button>
+            </section>
+
+            <!-- PRIMARY DOCTOR -->
+            <section class="panel card" style="margin-top:16px;">
+              <div class="panel-title">Primary Doctor</div>
+              <div class="small muted">Assigned</div>
+              <div style="margin-top:6px;">
+                <strong>Dr. Amelia Reed</strong>
+                <div class="small muted">General Medicine • Clinify Clinic</div>
+              </div>
+              <button class="btn ghost full" style="margin-top:10px;" onclick="window.location.href='/patient-dashboard/html/appointment.html'">
+                Book with Dr. Reed
+              </button>
+            </section>
+
+            <!-- INSURANCE SUMMARY -->
+            <section class="panel card" style="margin-top:16px;">
+              <div class="panel-title">Insurance Summary</div>
+              <div class="small muted">Linked to your active policy</div>
+              <div style="margin-top:8px;">
+                <div><strong>HealthShield Plus</strong></div>
+                <div class="small muted">Policy No: HSP-198237</div>
+                <div class="small muted">Coverage: ₹ 10,00,000</div>
+              </div>
+              <button class="btn ghost full" style="margin-top:10px;" onclick="window.location.href='/patient-dashboard/html/insurance.html'">
+                Manage Insurance →
+              </button>
+            </section>
+
+          </div>
+
+        </div>
+
+      </main>
+
+    </div>
+  </div>
+
+  <footer class="dash-web-footer">© 2025 Clinify. All Rights Reserved.</footer>
+
+  <!-- GLOBAL NAVBAR/RESPONSIVE JS -->
+  <script src="/patient-dashboard/js/script.js"></script>
+  <!-- PAGE JS -->
+  <script src="/patient-dashboard/js/profile.js"></script>
+</body>
+</html>

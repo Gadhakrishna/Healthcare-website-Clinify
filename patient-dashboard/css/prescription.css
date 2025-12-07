@@ -1,0 +1,63 @@
+/* pres.css — page specific styles for Prescriptions page */
+
+/* ensure mid uses two equal columns (overrides global 1fr 320px) */
+body.pres-page .mid {
+  grid-template-columns: 1fr 1fr !important;
+  gap: 16px;
+}
+
+/* left & right cols */
+.left-col, .right-col {
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+/* common panel look */
+.panel { 
+  background:white;
+  padding:18px;
+  border-radius:12px;
+  box-shadow: var(--shadow);
+}
+.panel-title { font-weight:700; font-size:16px; margin-bottom:8px; }
+
+/* small input styles */
+.fullInput {
+  padding:10px;
+  border-radius:10px;
+  border:1px solid rgba(0,0,0,0.08);
+  width:100%;
+}
+
+/* prescription item card */
+.pres-card {
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:12px;
+  padding:12px;
+  border-radius:10px;
+  margin-top:8px;
+  border:1px solid rgba(11,118,255,0.06);
+  background: #fff;
+}
+
+.pres-left { display:flex; flex-direction:column; gap:6px; max-width:70%; }
+.pres-meta { color:var(--muted); font-size:13px; }
+.pres-actions { display:flex; gap:8px; align-items:center; }
+
+/* buttons in card */
+.pres-actions .btn { padding:8px 10px; font-weight:600; border-radius:10px; }
+
+/* responsive */
+@media (max-width:860px) {
+  body.pres-page .mid { grid-template-columns: 1fr !important; }
+  .pres-left { max-width:60%; }
+}
+
+/* upload input small fix */
+#uploadFile { padding:6px; }
+
+/* minor spacing */
+.history .item { display:block; margin-top:0; }

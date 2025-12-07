@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Clinify — Prescriptions</title>
+
+  <!-- GLOBAL STYLES (shared) -->
+  <link rel="stylesheet" href="/patient-dashboard/css/appointment.css">
+
+  <!-- PAGE STYLES -->
+  <link rel="stylesheet" href="/patient-dashboard/css/prescription.css">
+</head>
+<body class="pres-page">
+
+  <!-- TOP NAVBAR -->
+  <header class="topbar tint" role="banner">
+    <div class="nav-inner">
+      <div class="top-left">
+        <button id="hamburgerBtn" class="hamburger" aria-label="Open menu" aria-expanded="false">
+          <div class="ham-line top"></div>
+          <div class="ham-line middle"></div>
+          <div class="ham-line bottom"></div>
+        </button>
+
+        <img src="/assets/icons/logo.png" alt="logo" width="100px">
+        <div class="brand-title">
+          <div class="site-title">Clinify</div>
+          <div class="site-subtitle">Prescriptions</div>
+        </div>
+      </div>
+
+      <div class="nav-spacer"></div>
+
+      <div class="nav-actions">
+        <div class="nav-bell" id="bellBtn" role="button" tabindex="0">
+          <i class="bell-icon"></i>
+          <span class="notif-badge" id="notifCount">1</span>
+        </div>
+
+        <div class="notif-box" id="notifBox" aria-hidden="true">
+          <div class="notif-header">Notifications</div>
+          <div class="notif-item"><p>Refill request sent.</p><span>Now</span></div>
+        </div>
+
+        <div class="nav-profile" id="profileBtn">
+          <img src="/assets/patients/Natalie hughes.jpg" alt="profile">
+        </div>
+
+        <div class="profile-dropdown" id="profileDropdown" aria-hidden="true">
+          <a href="/patient-dashboard/html/profile.html" class="p-item">My Profile</a>
+          <a href="/patient-dashboard/html/settings.html" class="p-item">Settings</a>
+          <button class="p-item danger" onclick="window.location.href='/login.html'">Logout</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- mobile overlay -->
+  <div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+  <!-- page -->
+  <div class="page">
+    <div class="frame">
+
+      <!-- SIDEBAR -->
+      <aside id="sidebar" class="sidebar" role="navigation">
+        <div class="brand">
+          <img src="/assets/icons/logo.png" width="100px" alt="logo">
+          
+        </div>
+
+        <nav class="side-nav">
+          <a href="/patient-dashboard/html/index.html">Dashboard</a>
+          <a href="/patient-dashboard/html/appointment.html">Appointment Management</a>
+          <a href="/patient-dashboard/html/medical.html">Medical Records</a>
+          <a href="/patient-dashboard/html/telemedicine.html">Telemedicine</a>
+          <a href="/patient-dashboard/html/ai.html">AI Symptom Checker</a>
+          <a class="active" href="/patient-dashboard/html/prescription.html">Prescriptions</a>
+          <a href="/patient-dashboard/html/insurance.html">Insurance</a>
+          <a href="/patient-dashboard/html/profile.html">My Profile</a>
+          <a href="/patient-dashboard/html/notification.html">Notifications</a>
+          <a href="/patient-dashboard/html/settings.html">Settings</a>
+        </nav>
+      </aside>
+
+      <!-- MAIN -->
+      <main class="main">
+
+        <div class="toprow">
+          <div>
+            <div class="welcome">Prescriptions</div>
+            <div class="sub">Manage active & past prescriptions — upload, download, request refills</div>
+          </div>
+
+          <div class="actions-row">
+            <!-- optional quick actions -->
+          </div>
+        </div>
+
+        <div class="mid">
+
+          <!-- LEFT COLUMN -->
+          <div class="left-col">
+
+            <!-- SEARCH & FILTER (top of left column) -->
+            <section class="panel card" aria-labelledby="search-filter-title">
+              <div class="panel-title" id="search-filter-title">Search & Filters</div>
+
+              <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                <input id="searchInput" class="fullInput" placeholder="Search by medicine, doctor, note..." aria-label="Search prescriptions">
+                <select id="filterSelect" class="fullInput" style="max-width:220px;">
+                  <option value="all">All</option>
+                  <option value="active">Active</option>
+                  <option value="expired">Expired</option>
+                </select>
+                <button id="clearSearch" class="btn ghost">Clear</button>
+              </div>
+            </section>
+
+            <!-- Active Prescriptions -->
+            <section class="panel card" style="margin-top:16px;">
+              <div class="panel-title">Active Prescriptions <span id="activeCount" class="small muted"></span></div>
+              <div id="activeList" class="history">
+                <!-- prescription cards (JS) -->
+              </div>
+            </section>
+
+            <!-- Past Prescriptions -->
+            <section class="panel card" style="margin-top:16px;">
+              <div class="panel-title">Past Prescriptions</div>
+              <div id="pastList" class="history">
+                <!-- prescription cards (JS) -->
+              </div>
+            </section>
+
+            <!-- Upload prescription -->
+            <section class="panel card" style="margin-top:16px;">
+              <div class="panel-title">Upload Prescription</div>
+              <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+                <input type="file" id="uploadFile" accept="image/*,.pdf">
+                <input type="text" id="uploadDoctor" placeholder="Doctor name (optional)" class="fullInput" style="max-width:260px;">
+                <button id="uploadBtn" class="btn primary">Upload</button>
+              </div>
+              <div class="small muted" style="margin-top:8px;">Supported: JPG, PNG, PDF — stored locally for demo</div>
+            </section>
+
+          </div>
+
+          <!-- RIGHT COLUMN -->
+          <div class="right-col">
+
+            <section class="panel card">
+              <div class="panel-title">Quick Actions</div>
+              <button class="btn primary full" onclick="window.location.href='/patient-dashboard/html/appointment.html'">Book Appointment</button>
+              <button class="btn ghost full" style="margin-top:8px" onclick="document.getElementById('uploadFile').click()">Upload Prescription</button>
+            </section>
+
+            <section class="panel card" style="margin-top:16px;">
+              <div class="panel-title">Filters & Shortcuts</div>
+              <div class="small muted">Use filters to narrow prescriptions. Click Download to get a file copy.</div>
+              <div style="margin-top:8px;display:flex;gap:8px;">
+                <button id="filterActiveBtn" class="btn ghost">Active</button>
+                <button id="filterExpiredBtn" class="btn ghost">Expired</button>
+                <button id="filterAllBtn" class="btn ghost">All</button>
+              </div>
+            </section>
+
+            <section class="panel card" style="margin-top:16px;">
+              <div class="panel-title">Recommended Medicines</div>
+              <div class="history">
+                <div class="item"><div>Paracetamol</div><div class="small muted">OTC</div></div>
+                <div class="item"><div>Saline Nasal Spray</div><div class="small muted">OTC</div></div>
+              </div>
+            </section>
+
+          </div>
+
+        </div>
+      </main>
+
+    </div>
+  </div>
+
+  <footer class="dash-web-footer">© 2025 Clinify. All Rights Reserved.</footer>
+
+  <!-- GLOBAL SCRIPT for navbar/hamburger/notifications -->
+  <script src="/patient-dashboard/js/script.js"></script>
+
+  <!-- PAGE SCRIPT -->
+  <script src="/patient-dashboard/js/prescription.js"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+/* insu.css — page specific styles for Insurance page */
+
+/* override .mid for this page so no empty right gap */
+body.insu-page .mid {
+  grid-template-columns: 1fr 1fr !important;
+  gap: 16px;
+}
+
+/* layout columns */
+.left-col, .right-col {
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+/* panels */
+.panel {
+  background:white;
+  padding:18px;
+  border-radius:12px;
+  box-shadow: var(--shadow);
+}
+.panel-title { font-weight:700; font-size:16px; margin-bottom:8px; }
+
+/* lists */
+.history .item {
+  background:#fff;
+  padding:10px;
+  border-radius:8px;
+  margin-top:8px;
+  display:flex;
+  justify-content:space-between;
+  border:1px solid rgba(11,118,255,0.06);
+}
+
+/* policy card */
+.policy-card {
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+}
+.policy-left { flex:1 }
+.policy-meta { color:var(--muted); font-size:13px; margin-top:6px; }
+.policy-actions { display:flex; gap:8px; align-items:center; }
+
+/* small inputs */
+.fullInput { width:100%; padding:10px; border-radius:10px; border:1px solid rgba(0,0,0,0.08); margin-top:6px; }
+
+/* ID card preview */
+#idCardContainer { display:flex; gap:12px; align-items:center; }
+.id-preview {
+  width:120px;
+  height:70px;
+  border-radius:8px;
+  background:linear-gradient(180deg,#f7fbff,#ffffff);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:8px;
+  border:1px solid rgba(11,118,255,0.04);
+}
+
+/* members list */
+.members-list .item { display:flex; justify-content:space-between; align-items:center; }
+
+/* responsive */
+@media (max-width:860px) {
+  body.insu-page .mid { grid-template-columns: 1fr !important; }
+  .id-preview { width:100px; height:60px; }
+}

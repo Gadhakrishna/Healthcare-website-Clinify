@@ -1,0 +1,178 @@
+/* profile.css — page-specific tweaks for My Profile */
+
+/* Use 2 equal columns so no empty space on the right */
+body.profile-page .mid.profile-grid {
+  grid-template-columns: 1fr 1fr !important;
+  gap: 16px;
+}
+
+.left-col,
+.right-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* main profile card */
+.profile-main-card {
+  padding: 20px;
+}
+
+/* header inside main card */
+.profile-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+/* avatar + change button */
+.profile-avatar-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.profile-avatar-wrap .avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #e2e2e2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-avatar-wrap .avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.small-btn {
+  padding: 6px 10px;
+  font-size: 13px;
+}
+
+/* main info */
+.profile-main-info {
+  flex: 1;
+}
+
+.profile-name-input {
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  font-weight: 800;
+  padding: 0;
+  margin: 0 0 4px;
+  width: 100%;
+  color: var(--text);
+}
+
+.profile-name-input:disabled {
+  color: var(--text);
+}
+
+/* tags */
+.profile-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  background: rgba(11,118,255,0.08);
+  color: var(--accent-2);
+  font-weight: 600;
+}
+
+/* fields grid */
+.profile-fields-grid {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 12px;
+}
+
+.profile-fields-grid .fullInput,
+.profile-fields-grid textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.08);
+  font-size: 14px;
+}
+
+/* toggle switches */
+.pref-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  gap: 10px;
+}
+
+.pref-title {
+  font-weight: 600;
+}
+
+/* simple iOS-style switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background: #d1d5db;
+  border-radius: 999px;
+  transition: 0.2s;
+}
+.slider:before {
+  content: "";
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  top: 3px;
+  background: white;
+  border-radius: 50%;
+  transition: 0.2s;
+}
+.switch input:checked + .slider {
+  background: var(--accent);
+}
+.switch input:checked + .slider:before {
+  transform: translateX(18px);
+}
+
+/* responsive adjustments */
+@media (max-width: 860px) {
+  body.profile-page .mid.profile-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .profile-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .profile-fields-grid {
+    grid-template-columns: 1fr;
+  }
+}
