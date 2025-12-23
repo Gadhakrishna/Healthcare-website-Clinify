@@ -10,7 +10,7 @@
 }
 
 html {
-    
+    font-size:85%
     overflow-x: hidden;
 }
 
@@ -36,7 +36,6 @@ html {
 html,body{height:100%}
 body{
   margin:0;
-  font-family:'Inter',sans-serif;
   background:linear-gradient(180deg,var(--bg),#ffffff);
   color:var(--text);
   -webkit-font-smoothing:anthed;
@@ -684,4 +683,5 @@ body{
 }
 
 }
+
 
