@@ -1,8 +1,3 @@
-/* appointment.css — updated */
-
-/* google font (user-provided snippet added) */
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ovo&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-
 /* root color */
 :root {
     --blue:#222ba5;
@@ -10,20 +5,16 @@
     --white:#ffff;
 }
 
-/* custom css (user-provided snippet) */
 * {
-    font-family: "Ovo", serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     text-decoration: none;
-    /* text-transform: capitalize; */
     outline: none;
     box-sizing: border-box;
     transition: all linear .2s;
 }
 
-
-/* --- rest of appointment.css (keeps look & feel) --- */
 
 :root{
   --bg:#f0f6ff;
@@ -41,7 +32,6 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
 body{
-  font-family:'Inter',sans-serif;
   background:linear-gradient(180deg,var(--bg),#ffffff);
   color:var(--text);
   line-height:1.35;
@@ -165,8 +155,6 @@ body{
 /* inputs */
 .fullInput{width:100%;padding:10px;border-radius:10px;border:1px solid rgba(0,0,0,0.1);margin-top:6px}
 
-/* --- NEW: layout for the right column to make two panels side-by-side --- */
-/* Wrap the two panels in a container with .two-cols (see HTML change below) */
 .two-cols {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -175,7 +163,6 @@ body{
   margin-top: 16px;
 }
 
-/* ensure each panel fills its grid cell */
 .two-cols .panel {
   margin-top: 0; /* panels already spaced by grid */
 }
@@ -316,7 +303,8 @@ body{
   .btn.full {
     width: 60%;     
     margin:10px auto;    /* centers automatically */
-    display: block;    /* required for auto margin */
+    display: block;    
 }
 }
+
 
