@@ -1,8 +1,3 @@
-/* -----------------------------------
-   TELEMEDICINE — PAGE SPECIFIC CSS
-   (Navbar, sidebar, dropdowns come from style.css)
------------------------------------*/
-
 /* Layout spacing */
 .left-col,
 .right-col {
@@ -85,3 +80,4 @@
     grid-template-columns: 1fr;
   }
 }
+
