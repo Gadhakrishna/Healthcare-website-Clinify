@@ -1,16 +1,13 @@
-/* google font */
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ovo&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-
 /* root color */
 :root {
     --blue:#222ba5;
     --black:#000000;
-    --white:#ffff;
+    --white:#ffffff;
 }
 
 /* custom css */
 * {
-    font-family: "Ovo", serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     text-decoration: none;
@@ -84,7 +81,7 @@ header .navbar ul {
 } */
 
 header .navbar ul li a {
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: var(--black);
 }
 
@@ -359,7 +356,7 @@ body{
     }
 
     header .navbar ul li a {
-        font-size: 3rem;
+        font-size: 2.5rem;
         display: block;
     }
 
@@ -400,4 +397,5 @@ body{
     .section {
         padding: 40px 30px;
     }
+
 }
