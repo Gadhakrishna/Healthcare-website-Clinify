@@ -1,16 +1,13 @@
-/* google font */
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ovo&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-
 /* root color */
 :root {
     --blue:#222ba5;
     --black:#000000;
-    --white:#ffff;
+    --white:#ffffff;
 }
 
 /* custom css */
 * {
-    font-family: "Ovo", serif;
+    font-family: 'Roboto', Arial, sans-serif;
     margin: 0;
     padding: 0;
     text-decoration: none;
@@ -47,7 +44,7 @@ html {
     border:.1rem solid var(--blue);
     background: var(--white);
     color: var(--blue);
-    letter-spacing: .2rem;
+    letter-spacing: .1rem;
 
 }
 
@@ -76,12 +73,8 @@ header .navbar ul {
     list-style: none;
 }
 
-/* header .navbar ul li {
-    margin: 0 1rem;
-} */
-
 header .navbar ul li a {
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: var(--black);
 }
 
@@ -250,7 +243,7 @@ body {
 
 .view-btn:hover {
      background: #fff;
-    letter-spacing: .2rem;
+    letter-spacing: .15rem;
     color: #0a1169;
     border-color: #0a1169;
     border-radius: 30px;
@@ -340,12 +333,7 @@ body{
 }
 
 
-
-
-
-
-
-@media (max-width: 900px) {
+@media (max-width: 768px) {
 
     
     html {
@@ -377,7 +365,7 @@ body{
     }
 
     header .navbar ul li a {
-        font-size: 3rem;
+        font-size: 2.5rem;
         display: block;
     }
 
@@ -411,4 +399,5 @@ body{
         margin: 1rem 0;
     }
 }
+
 
