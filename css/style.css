@@ -1,16 +1,13 @@
-/* google font */
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ovo&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-
 /* root color */
 :root {
     --blue:#222ba5;
     --black:#000000;
-    --white:#ffff;
+    --white:#ffffff;
 }
 
 /* custom css */
 * {
-    font-family: "Ovo", serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     text-decoration: none;
@@ -31,8 +28,8 @@ html {
 
 /* button */
 .button {
-    height: 4.5rem;
-    width: 22rem;
+    height: 5rem;
+    width: 24rem;
     background-color: var(--blue);
     color: var(--white);
     font-size: 1.7rem;
@@ -48,11 +45,9 @@ html {
     border:.1rem solid var(--blue);
     background: var(--white);
     color: var(--blue);
-    letter-spacing: .2rem;
+    letter-spacing: .1rem;
 
 }
-
-
 
 /* header navbar */
 header {
@@ -77,12 +72,8 @@ header .navbar ul {
     list-style: none;
 }
 
-/* header .navbar ul li {
-    margin: 0 1rem;
-} */
-
 header .navbar ul li a {
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: var(--black);
 }
 
@@ -152,7 +143,6 @@ header .fa-times {
     justify-content: space-around;
     width: 85%;
     margin: 0 auto;
-    /* padding-left: 40px; */
     flex-direction: row-reverse;
 }
 
@@ -287,11 +277,6 @@ header .fa-times {
     background: linear-gradient(135deg, #ffd9ef, #ffb2da);
     color: #e93ca6;
 }
-
-/* .orange {
-    background: linear-gradient(135deg, #ffe4c7, #ffcb98);
-    color: #f68b1e;
-} */
 
 /* CARD TEXT */
 .portal-card h3 {
@@ -507,7 +492,7 @@ header .fa-times {
 
 .book-btn:hover {
     background: #fff;
-    letter-spacing: .2rem;
+    letter-spacing: .12rem;
     color: #0a1169;
     border-color: #0a1169;
     border-radius: 30px;
@@ -533,7 +518,7 @@ header .fa-times {
 
 .more-doctors-btn a:hover {
     background: #fff;
-    letter-spacing: .2rem;
+    letter-spacing: .15rem;
     color: #0a1169;
     border-color: #0a1169;
     border-radius: 30px;
@@ -977,7 +962,7 @@ body{
     }
 
     header .navbar ul li a {
-        font-size: 3rem;
+        font-size: 2.5rem;
         display: block;
     }
 
@@ -1024,61 +1009,32 @@ body{
 
 }
 
-/**************************************
- FIX: SET GLOBAL PAGE BACKGROUND
-**************************************/
-body {
-    background: #f0f6ff !important;
-}
 
-/**************************************
- FIX: NAVBAR SAME AS BODY COLOR
-**************************************/
-header {
-    /* background: #e9f1fc !important; */
-    background: #f0f6ff;
-    /* border-bottom: 1px solid rgba(0,0,0,0.05); */
-    box-shadow: none;
-}
-
-/**************************************
- FIX: TESTIMONIAL + CHOOSE-US CARDS 
- BACKGROUND SHOULD MATCH BODY
-**************************************/
 .testimonial-card,
 .choose-card {
     background: #fff !important;
     box-shadow: 0 6px 18px rgba(0,0,0,0.05);
 }
 
-/**************************************
- FIX: PORTAL CARDS RESPONSIVE
-**************************************/
+
 .portal-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 25px;
 }
 
-/**************************************
- FIX: CHOOSE US CARDS RESPONSIVE
-**************************************/
+
 .choose-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 25px;
 }
 
-/**************************************
- FIX: TESTIMONIAL CARDS RESPONSIVE
-**************************************/
 .testimonial-container {
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
 }
 
-/**************************************
- EXTRA MOBILE FIXES FOR SMALL SCREENS
-**************************************/
+
 @media (max-width: 768px) {
 
     /* portal cards */
@@ -1105,6 +1061,7 @@ header {
         padding-right: 20px !important;
     }
 }
+
 
 
 
